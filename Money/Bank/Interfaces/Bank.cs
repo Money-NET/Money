@@ -35,6 +35,6 @@ namespace Money.Bank.Interfaces
         Rate GetRate(Currency from, Currency to);
         IEnumerable<Rate> GetRates();
 
-        decimal Exchange(Currency from, Currency to);
+        Money Exchange(Currency from, Currency to);
     }
 }
