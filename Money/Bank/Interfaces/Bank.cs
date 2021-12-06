@@ -1,4 +1,6 @@
-﻿namespace Money.Bank.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Money.Bank.Interfaces
 {
     /// <summary>
     /// Money.Bank.Base is the basic interface for creating a money exchange
@@ -15,7 +17,7 @@
     ///
     /// - #exchange_with(Money) #=> Money
     ///
-    /// See Money::Bank::VariableExchange for a real example.
+    /// See Money.Bank.VariableExchange for a real example.
     ///
     /// Also, you can extend +Money::Bank::VariableExchange+ instead of
     /// +Money.Bank.Base+ if your bank implementation needs to store rates
@@ -27,6 +29,12 @@
     /// </summary>
     public interface IBank
     {
+        void AddRate(Currency from, Currency to, decimal value);
+        void AddRate(Currency from, Currency to, double value);
+        void SetRate(Rate rate);
+        Rate GetRate(Currency from, Currency to);
+        IEnumerable<Rate> GetRates();
+
         decimal Exchange(Currency from, Currency to);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Money.Bank.Exceptions;
+﻿using System.Collections.Generic;
+using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
 
 namespace Money.Bank
@@ -14,6 +15,36 @@ namespace Money.Bank
     /// </summary>
     public class SingleCurrency : IBank
     {
+        public void AddRate(Currency from, Currency to, decimal value)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AddRate(Currency from, Currency to, double value)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetRate(Rate rate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Rate GetRate(Currency from, Currency to)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<Rate> GetRates()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<Rate> Rates()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public decimal Exchange(Currency from, Currency to)
         {
             throw new DifferentCurrencyException(from, to);

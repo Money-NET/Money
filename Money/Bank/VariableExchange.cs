@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
 
@@ -48,6 +49,8 @@ namespace Money.Bank
                 throw new UnknownRateException(from, to);
 
             var fractional = Fractional(from, to);
+
+            return 0;
         }
 
         /// <summary>
@@ -56,7 +59,7 @@ namespace Money.Bank
         /// <param name="from">Currency</param>
         /// <param name="to">Currency</param>
         /// <param name="value">decimal</param>
-        public static void AddRate(Currency from, Currency to, decimal value)
+        public void AddRate(Currency from, Currency to, decimal value)
         {
             var rate = new Rate(from, to, value);
 
@@ -64,10 +67,21 @@ namespace Money.Bank
         }
 
         /// <summary>
+        /// Registers a conversion rate
+        /// </summary>
+        /// <param name="from">Currency</param>
+        /// <param name="to">Currency</param>
+        /// <param name="value">double</param>
+        public void AddRate(Currency from, Currency to, double value)
+        {
+            AddRate(from, to, (decimal)value);
+        }
+
+        /// <summary>
         /// Set the rate for the given currencies.
         /// </summary>
         /// <param name="rate"></param>
-        public static void SetRate(Rate rate)
+        public void SetRate(Rate rate)
         {
             Rates.AddOrUpdate(rate.ToString(), rate, (k, v) => rate);
         }
@@ -78,11 +92,16 @@ namespace Money.Bank
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        public static Rate GetRate(Currency from, Currency to)
+        public Rate GetRate(Currency from, Currency to)
         {
             Rates.TryGetValue($"{from.Code}_{to.Code}", out var rate);
 
             return rate;
+        }
+
+        public IEnumerable<Rate> GetRates()
+        {
+            return Rates.Values;
         }
 
         public decimal Fractional(Currency from, Currency to)

@@ -1,4 +1,5 @@
-﻿using Money.Bank.Interfaces;
+﻿using System;
+using Money.Bank.Interfaces;
 
 namespace Money
 {
@@ -15,17 +16,56 @@ namespace Money
     /// </summary>
     public class Money //: IComparable
     {
-        private IBank _bank;
+        public IBank Bank;
+        public Currency Currency;
+        public int Centesimal;
 
         public Money()
         {
-            _bank = new Bank.VariableExchange();
+            Bank = new Bank.VariableExchange();
+        }
+
+        /// <summary>
+        /// Creates a new Money object of value given in the +unit+ of the given
+        /// +currency+.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        public Money(decimal value, Currency currency)
+        {
+            Bank = new Bank.VariableExchange();
+            Currency = currency;
+            Centesimal = (int)Math.Round((value * currency.CentesimalConversion), MidpointRounding.ToEven);
+        }
+
+
+        /// <summary>
+        /// Creates a new Money object of value given in the +unit+ of the given
+        /// +currency+.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        public Money(double value, Currency currency)
+        {
+            Bank = new Bank.VariableExchange();
+            Currency = currency;
+            Centesimal = (int)Math.Round((value * currency.CentesimalConversion), MidpointRounding.ToEven);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="cents"></param>
+        /// <param name="currency"></param>
+        public Money(int cents, Currency currency)
+        {
+            Bank = new Bank.VariableExchange();
+            Currency = currency;
+            Centesimal = cents;
         }
 
 
         #region Bank
-
-        public IBank Bank => _bank;
 
         #endregion
 
@@ -33,7 +73,7 @@ namespace Money
 
         public Money SetBank(IBank bank)
         {
-            _bank = bank;
+            Bank = bank;
 
             return this;
         }

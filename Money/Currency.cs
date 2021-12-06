@@ -25,15 +25,18 @@ namespace Money
         public static readonly Currency JOD = new Currency(CultureInfo.GetCultureInfo("ar-JO"), 100, 400, "Fils", 1000, 5, new[] { "JD" });
         public static readonly Currency KWD = new Currency(CultureInfo.GetCultureInfo("ar-KW"), 100, 414, "Fils", 1000, 5, new[] { "K.D." });
         public static readonly Currency LBP = new Currency(CultureInfo.GetCultureInfo("ar-LB"), 100, 422, "Piastre", 100, 25000, new[] { "£", "L£" }, symbolFirst: true);
+        public static readonly Currency SEK = new Currency(CultureInfo.GetCultureInfo("sv-SE"), 100, 752, "Öre", 100, 100, new []{ ":-" });
+        public static readonly Currency USD = new Currency(CultureInfo.GetCultureInfo("en-US"), 100, 840, "Cent", 100, 1, new []{ "US$" }, symbolFirst: true);
         public static readonly Currency ZAR = new Currency(CultureInfo.GetCultureInfo("af-ZA"), 100, 710, "Cent", 100, 10, symbolFirst: true);
 
         #endregion
+
 
         #region Properties
 
         public int Priority { get; }
         public string Code { get; }
-        public decimal Number { get; }
+        public decimal? Number { get; }
         public string Name { get; }
         public string Format { get; set; }
         public string[] Symbols { get; }
@@ -209,6 +212,20 @@ namespace Money
             var currency = (Currency)obj;
             return String.CompareOrdinal(Code, currency.Code);
         }
+
+        /// <summary>
+        /// Returns the relation between subunit and unit as a base 10 exponent.
+        ///
+        ///  Note that MGA and MRU are exceptions and are rounded to 1
+        ///  @see https://en.wikipedia.org/wiki/ISO_4217#Active_codes
+        /// </summary>
+        /// <returns>[Integer]</returns>
+        public int Exponent => (int)Math.Round(Math.Log10(CentesimalConversion), MidpointRounding.ToEven);
+
+        /// <summary>
+        /// Returns if a code currency is ISO.
+        /// </summary>
+        public bool IsIso => Number != null;
         #endregion
 
         #region Overrides
@@ -217,6 +234,12 @@ namespace Money
             return Code.GetHashCode();
         }
 
+        /// <summary>
+        /// Compares +self+ with +other_currency+ and returns +true+ if the are the
+        /// same or if their +id+ attributes match.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>[Boolean]</returns>
         public override bool Equals(object obj)
         {
             if (!(obj is Currency))
@@ -234,6 +257,11 @@ namespace Money
             return Code.Equals(rhs.Code);
         }
 
+        /// <summary>
+        /// Returns a string representation corresponding to the upcase +id+
+        /// attribute. Useful in cases where only implicit conversions are made.
+        /// </summary>
+        /// <returns>[String]</returns>
         public override string ToString()
         {
             return Code;
@@ -242,6 +270,12 @@ namespace Money
         #endregion
 
         #region Operators
+        /// <summary>
+        /// Compares +self+ with +other_currency+ and returns +true+ if the are the
+        /// same or if their +id+ attributes match.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>[Boolean]</returns>
         public static bool operator ==(Currency lhs, Currency rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -251,6 +285,12 @@ namespace Money
             return lhs.Equals(rhs);
         }
 
+        /// <summary>
+        /// Compares +self+ with +other_currency+ and returns +true+ if the are the
+        /// same or if their +id+ attributes match.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>[Boolean]</returns>
         public static bool operator !=(Currency lhs, Currency rhs)
         {
             return !(lhs == rhs);
