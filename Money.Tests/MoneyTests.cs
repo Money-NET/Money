@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Money.Bank;
 using Xunit;
 
@@ -11,12 +12,14 @@ namespace Money.Tests
         public void ShouldCreateMoneyObject()
         {
             var sek = new Money(1000, Currency.SEK);
+            Assert.IsType<Currency>(sek.Currency);
             Assert.Equal(Currency.SEK, sek.Currency);
-            Assert.Equal(1000, sek.Centesimal);
+            Assert.Equal(1000, sek.Fractional);
 
             var usd = new Money(49.99, Currency.USD);
+            Assert.IsType<Currency>(usd.Currency);
             Assert.Equal(Currency.USD, usd.Currency);
-            Assert.Equal(4999, usd.Centesimal);
+            Assert.Equal(4999, usd.Fractional);
         }
 
         [Fact]
@@ -39,6 +42,91 @@ namespace Money.Tests
             Assert.Equal(rate2.From, Currency.USD);
             Assert.Equal(rate2.To, Currency.SEK);
             Assert.Equal((decimal)9.16479, rate2.Value);
+        }
+
+        [Fact]
+        public void ShouldReturnAmountInFractionalUnit()
+        {
+            var m1 = new Money(100, Currency.USD);
+            Assert.Equal(100, m1.Fractional);
+
+            var m2 = new Money(49.00, Currency.USD);
+            Assert.Equal(4900, m2.Fractional);
+
+            var m3 = new Money(49.99, Currency.USD);
+            Assert.Equal(4999, m3.Fractional);
+        }
+
+        [Fact]
+        public void ShouldChangeRoundingMode()
+        {
+            var m1 = new Money(19.50, Currency.USD);
+            Assert.Equal(1950, m1.Fractional);
+
+            var m2 = new Money(29.99, Currency.USD, MidpointRounding.AwayFromZero);
+            Assert.Equal(2999, m2.Fractional);
+
+            var m3 = new Money(2999, Currency.USD, MidpointRounding.AwayFromZero);
+            Assert.Equal(2999, m3.Fractional);
+        }
+
+        [Fact]
+        public void ShouldRoundToNearestPossibleCashValue()
+        {
+            var money = new Money(2350, Currency.AED);
+            Assert.Equal(2350, money.RoundToNearestCashValue());
+
+            money = new Money(-2350, Currency.AED);
+            Assert.Equal(-2350, money.RoundToNearestCashValue());
+
+            money = new Money(2213, Currency.AED);
+            Assert.Equal(2225, money.RoundToNearestCashValue());
+
+            money = new Money(-2213, Currency.AED);
+            Assert.Equal(-2225, money.RoundToNearestCashValue());
+
+            money = new Money(2212, Currency.AED);
+            Assert.Equal(2200, money.RoundToNearestCashValue());
+
+            money = new Money(-2212, Currency.AED);
+            Assert.Equal(-2200, money.RoundToNearestCashValue());
+
+
+            money = new Money(178, Currency.CHF);
+            Assert.Equal(180, money.RoundToNearestCashValue());
+
+            money = new Money(-178, Currency.CHF);
+            Assert.Equal(-180, money.RoundToNearestCashValue());
+
+            money = new Money(177, Currency.CHF);
+            Assert.Equal(175, money.RoundToNearestCashValue());
+
+            money = new Money(-177, Currency.CHF);
+            Assert.Equal(-175, money.RoundToNearestCashValue());
+
+
+            money = new Money(299, Currency.USD);
+            Assert.Equal(299, money.RoundToNearestCashValue());
+
+            money = new Money(-299, Currency.USD);
+            Assert.Equal(-299, money.RoundToNearestCashValue());
+
+            money = new Money(300, Currency.USD);
+            Assert.Equal(300, money.RoundToNearestCashValue());
+
+            money = new Money(-300, Currency.USD);
+            Assert.Equal(-300, money.RoundToNearestCashValue());
+
+            money = new Money(301, Currency.USD);
+            Assert.Equal(301, money.RoundToNearestCashValue());
+
+            money = new Money(-301, Currency.USD);
+            Assert.Equal(-301, money.RoundToNearestCashValue());
+        }
+
+        [Fact]
+        public void ShouldExchangeCurrency()
+        {
         }
     }
 }

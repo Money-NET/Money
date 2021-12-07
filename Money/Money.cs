@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Money.Bank.Interfaces;
+using Money.Exceptions;
 
 namespace Money
 {
@@ -18,11 +20,29 @@ namespace Money
     {
         public IBank Bank;
         public Currency Currency;
-        public int Centesimal;
+        public int Fractional;
+        public MidpointRounding Rounding = MidpointRounding.ToEven;
 
-        public Money()
+        public Money(MidpointRounding rounding = MidpointRounding.ToEven)
         {
             Bank = new Bank.VariableExchange();
+            Rounding = rounding;
+        }
+
+        #region Constructors
+
+        /// <summary>
+        /// Creates a new Money object of value given in the +unit+ of the given
+        /// +currency+.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(decimal value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = (int)Math.Round((value * currency.CentesimalConversion), rounding);
         }
 
         /// <summary>
@@ -31,25 +51,12 @@ namespace Money
         /// </summary>
         /// <param name="value"></param>
         /// <param name="currency"></param>
-        public Money(decimal value, Currency currency)
+        /// <param name="rounding"></param>
+        public Money(double value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
         {
-            Bank = new Bank.VariableExchange();
             Currency = currency;
-            Centesimal = (int)Math.Round((value * currency.CentesimalConversion), MidpointRounding.ToEven);
-        }
-
-
-        /// <summary>
-        /// Creates a new Money object of value given in the +unit+ of the given
-        /// +currency+.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        public Money(double value, Currency currency)
-        {
-            Bank = new Bank.VariableExchange();
-            Currency = currency;
-            Centesimal = (int)Math.Round((value * currency.CentesimalConversion), MidpointRounding.ToEven);
+            Fractional = (int)Math.Round((value * currency.CentesimalConversion), rounding);
         }
 
         /// <summary>
@@ -57,12 +64,14 @@ namespace Money
         /// </summary>
         /// <param name="cents"></param>
         /// <param name="currency"></param>
-        public Money(int cents, Currency currency)
+        /// <param name="rounding"></param>
+        public Money(int cents, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
         {
-            Bank = new Bank.VariableExchange();
             Currency = currency;
-            Centesimal = cents;
+            Fractional = cents;
         }
+        #endregion
 
 
         #region Bank
@@ -70,10 +79,33 @@ namespace Money
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Round a given amount of money to the nearest possible amount in cash value. For
+        /// example, in Swiss franc (CHF), the smallest possible amount of cash value is
+        /// CHF 0.05. Therefore, this method rounds CHF 0.07 to CHF 0.05, and CHF 0.08 to
+        /// CHF 0.10.
+        /// </summary>
+        /// <returns></returns>
+        public decimal RoundToNearestCashValue()
+        {
+            //TODO: Is this needed i .NET?
+            //if (Currency.SmallestDenomination == null)
+            //    throw new UndefinedSmallestDenominationException(Currency);
+            var value = Math.Round(((decimal)Fractional / (decimal)Currency.SmallestDenomination), Rounding) * Currency.SmallestDenomination;
+
+            return value;
+        }
 
         public Money SetBank(IBank bank)
         {
             Bank = bank;
+
+            return this;
+        }
+
+        public Money SetRounding(MidpointRounding rounding)
+        {
+            Rounding = rounding;
 
             return this;
         }

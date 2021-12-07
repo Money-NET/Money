@@ -18,6 +18,7 @@ namespace Money
         public static readonly Currency ALL = new Currency(CultureInfo.GetCultureInfo("sq-AL"), 100, 008, "Qintar", 100, 100, new[] { "Lek" });
         public static readonly Currency AMD = new Currency(CultureInfo.GetCultureInfo("hy-AM"), 100, 051, "Luma", 100, 10, new[] { "dram" });
         public static readonly Currency BHD = new Currency(CultureInfo.GetCultureInfo("ar-BH"), 100, 048, "Fils", 1000, 5, new[] { "BD" }, symbolFirst: true);
+        public static readonly Currency CHF = new Currency(CultureInfo.GetCultureInfo("de-CH"), 100, 756, "Rappen", 100, 5, new [] { "SFr", "Fr" }, format: "%u%n", symbolFirst: true);
         public static readonly Currency DZD = new Currency(CultureInfo.GetCultureInfo("ar-DZ"), 100, 012, "Centime", 100, 100, new[] { "DA" });
         public static readonly Currency EGP = new Currency(CultureInfo.GetCultureInfo("ar-EG"), 100, 818, "Piastre", 100, 25, new[] { "LE", "E£", "L.E." }, symbolFirst: true);
         public static readonly Currency ETB = new Currency(CultureInfo.GetCultureInfo("am-ET"), 100, 230, "Santim", 100, 1);
@@ -63,6 +64,7 @@ namespace Money
             int centesimalConversion,
             int smallestDenomination,
             IEnumerable<string> alternateSymbols = null,
+            string format = null,
             bool symbolFirst = false,
             string htmlEntity = null)
         {
@@ -76,7 +78,7 @@ namespace Money
             Code = region.ISOCurrencySymbol;
             Number = number;
             Name = region.CurrencyEnglishName;
-            Format = symbolFirst ? "%u %n" : "%n %u";
+            Format = string.IsNullOrWhiteSpace(format) ? symbolFirst ? "%u %n" : "%n %u" : format;
             Symbols = symbols.ToArray();
             SymbolFirst = symbolFirst;
             Centesimal = centesimal;

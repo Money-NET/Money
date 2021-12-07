@@ -135,6 +135,31 @@ namespace Money.Tests
         }
 
         [Fact]
+        public void CHF()
+        {
+            const string symbol = "CHF";
+            var currency = Currency.CHF;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CHF", currency.Code);
+            Assert.Equal("Swiss Franc", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "SFr", "Fr" }, currency.Symbols);
+            Assert.Equal("Rappen", currency.Centesimal);
+            Assert.Equal(100, currency.CentesimalConversion);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u%n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal("’", currency.ThousandsSeparator);
+            Assert.Equal(756, currency.Number);
+            Assert.Equal(5, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
         public void DZD()
         {
             const string symbol = "د.ج.‏";
