@@ -45,7 +45,7 @@ namespace Money.Bank
             throw new System.NotImplementedException();
         }
 
-        public decimal Exchange(Currency from, Currency to)
+        public Money Exchange(Currency from, Currency to)
         {
             throw new DifferentCurrencyException(from, to);
         }

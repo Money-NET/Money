@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
 
@@ -41,7 +42,7 @@ namespace Money.Bank
     {
         private static readonly ConcurrentDictionary<string, Rate> Rates = new ConcurrentDictionary<string, Rate>();
 
-        public decimal Exchange(Currency from, Currency to)
+        public Money Exchange(Currency from, Currency to)
         {
             var rate = GetRate(from, to);
 
@@ -50,7 +51,7 @@ namespace Money.Bank
 
             var fractional = Fractional(from, to);
 
-            return 0;
+            return new Money(fractional, to);
         }
 
         /// <summary>
