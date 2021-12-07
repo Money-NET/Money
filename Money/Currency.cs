@@ -38,18 +38,38 @@ namespace Money
         public static readonly Currency BWP = new Currency("BWP", 072, "Botswana Pula", "%u %n", "Thebe", 100, 5, ".", ",", new[] { "P" }, symbolFirst: true);
         public static readonly Currency BYN = new Currency("BYN", 933, "Belarusian Ruble", "%n %u", "Kapeyka", 100, 1, ",", " ", new[] { "Br", "бел. руб.", "б.р.", "руб.", "р." }, disambiguateSymbol: "BYN");
         public static readonly Currency BYR = new Currency("BYR", 974, "Belarusian Ruble", "%n %u", null, 1, 100, ",", " ", new[] { "Br", "бел. руб.", "б.р.", "руб.", "р." }, disambiguateSymbol: "BYR", priority: 50);
-        public static readonly Currency BZD = new Currency("BZD", 084, "Belize Dollar", "%u %n", "Cent", 100, 1, ".", ",", new [] { "$", "BZ$" }, disambiguateSymbol: "BZ$", symbolFirst: true);
+        public static readonly Currency BZD = new Currency("BZD", 084, "Belize Dollar", "%u %n", "Cent", 100, 1, ".", ",", new[] { "$", "BZ$" }, disambiguateSymbol: "BZ$", symbolFirst: true);
 
-        public static readonly Currency CAD = new Currency("CAD", 124, "Canadian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new [] { "$", "C$", "CAD$" }, disambiguateSymbol: "C$", symbolFirst: true);
-        public static readonly Currency CDF = new Currency("CDF", 976, "Congolese Franc", "%n %u", "Centime", 100, 1, ".", ",", new [] { "Fr", "FC" }, disambiguateSymbol: "FC");
+        public static readonly Currency CAD = new Currency("CAD", 124, "Canadian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new[] { "$", "C$", "CAD$" }, disambiguateSymbol: "C$", symbolFirst: true);
+        public static readonly Currency CDF = new Currency("CDF", 976, "Congolese Franc", "%n %u", "Centime", 100, 1, ".", ",", new[] { "Fr", "FC" }, disambiguateSymbol: "FC");
         public static readonly Currency CHF = new Currency("CHF", 756, "Swiss Franc", "%u%n", "Rappen", 100, 5, ".", "’", new[] { "CHF", "SFr", "Fr" }, symbolFirst: true);
         public static readonly Currency CLF = new Currency("CLF", 990, "Unidad de Fomento", "%u %n", "Peso", 10000, 1, ",", ".", new[] { "UF" }, symbolFirst: true);
         public static readonly Currency CLP = new Currency("CLP", 152, "Chilean Peso", "%u %n", "Peso", 1, 1, ",", ".", new[] { "$" }, disambiguateSymbol: "CLP", symbolFirst: true);
+        public static readonly Currency CNY = new Currency("CNY", 156, "Chinese Renminbi Yuan", "%u %n", "Fen", 100, 1, ".", ",", new[] { "¥", "CN¥", "元", "CN元" }, symbolFirst: true);
+        public static readonly Currency COP = new Currency("COP", 170, "Colombian Peso", "%u %n", "Centavo", 100, 20, ",", ".", new[] { "$", "COL$" }, disambiguateSymbol: "COL$", symbolFirst: true);
+        public static readonly Currency CRC = new Currency("CRC", 188, "Costa Rican Colón", "%u %n", "Céntimo", 100, 500, ",", ".", new[] { "₡", "¢" }, symbolFirst: true);
+        public static readonly Currency CUC = new Currency("CUC", 931, "Cuban Convertible Peso", "%n %u", "Centavo", 100, 1, ".", ",", new [] { "$", "CUC$" }, disambiguateSymbol: "CUC$");
+        public static readonly Currency CUP = new Currency("CUP", 192, "Cuban Peso", "%u %n", "Centavo", 100, 1, ".", ",", new [] { "$", "$MN" }, disambiguateSymbol: "$MN", symbolFirst: true);
+        public static readonly Currency CVE = new Currency("CVE", 132, "Cape Verdean Escudo", "%n %u", "Centavo", 100, 100, ".", ",", new [] { "$", "Esc" });
+        public static readonly Currency CZK = new Currency("CZK", 203, "Czech Koruna", "%n %u", "Haléř", 100, 100, ",", " ", new [] { "Kč" });
 
+        public static readonly Currency DJF = new Currency("DJF", 262, "Djiboutian Franc", "%n %u", "Centime", 1, 100, ".", ",", new [] { "Fdj" });
+        public static readonly Currency DKK = new Currency("DKK", 208, "Danish Krone", "%n %u", "Øre", 100, 50, ",", ".", new [] { "kr.", ",-" }, disambiguateSymbol: "DKK");
+        public static readonly Currency DOP = new Currency("DOP", 214, "Dominican Peso", "%u %n", "Centavo", 100, 100, ".", ",", new []  { "$", "RD$" }, disambiguateSymbol: "RD$", symbolFirst: true);
         public static readonly Currency DZD = new Currency("DZD", 012, "Algerian Dinar", "%n %u", "Centime", 100, 100, ".", ",", new[] { "د.ج", "DA" });
 
         public static readonly Currency EGP = new Currency("EGP", 818, "Egyptian Pound", "%u %n", "Piastre", 100, 25, ".", ",", new[] { "ج.م", "LE", "E£", "L.E." }, symbolFirst: true);
+        public static readonly Currency ERN = new Currency("ERN", 232, "Eritrean Nakfa", "%n %u", "Cent", 100, 1, ".", ",", new[] { "Nfk" });
         public static readonly Currency ETB = new Currency("ETB", 230, "Ethiopian Birr", "%n %u", "Santim", 100, 1, ".", ",", new[] { "Br", "ብር" });
+        public static readonly Currency EUR = new Currency("EUR", 978, "Euro", "%u %n", "Cent", 100, 1, ",", ".", new [] { "€" }, symbolFirst: true);
+
+        public static readonly Currency FJD = new Currency("FJD", 242, "Fijian Dollar", "%n %u", "Cent", 100, 5, ".", ",", new [] { "$", "FJ$" });
+        public static readonly Currency FKP = new Currency("FKP", 238, "Falkland Pound", "%n %u", "Penny", 100, 1, ".", ",", new[] { "£", "FK£" });
+
+        public static readonly Currency GBP = new Currency("GBP", 826, "British Pound", "%u %n", "Penny", 100, 1, ".", ",", new [] { "£" }, priority: 3, symbolFirst: true);
+        public static readonly Currency GEL = new Currency("GEL", 981, "Georgian Lari", "%n %u", "Tetri", 100, 1, ".", ",", new [] { "ლ", "lari" });
+        public static readonly Currency GHS = new Currency("GHS", 936, "Ghanaian Cedi", "%u %n", "Pesewa", 100, 1, ".", ",", new [] { "₵", "GH¢", "GH₵" }, symbolFirst: true);
+        public static readonly Currency GIP = new Currency("GIP", 292, "Gibraltar Pound", "%u %n", "Penny", 100, 1, ".", ",", new [] { "£" }, disambiguateSymbol: "GIP", symbolFirst: true);
 
         public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new[] { "ع.د" });
 

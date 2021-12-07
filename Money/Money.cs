@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using Money.Bank.Interfaces;
-using Money.Exceptions;
 
 namespace Money
 {

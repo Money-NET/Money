@@ -276,6 +276,7 @@ namespace Money.Tests
             Assert.Equal(2, currency.Exponent);
         }
 
+
         [Fact]
         public void BAM()
         {
@@ -578,6 +579,7 @@ namespace Money.Tests
             Assert.Equal(2, currency.Exponent);
         }
 
+
         [Fact]
         public void BWP()
         {
@@ -809,6 +811,251 @@ namespace Money.Tests
         }
 
         [Fact]
+        public void CNY()
+        {
+            const string symbol = "¥";
+            var currency = Currency.CNY;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CNY", currency.Code);
+            Assert.Equal("Chinese Renminbi Yuan", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "CN¥", "元", "CN元" }, currency.Symbols);
+            Assert.Equal("Fen", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(156, currency.Number);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void COP()
+        {
+            const string symbol = "$";
+            var currency = Currency.COP;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("COP", currency.Code);
+            Assert.Equal("Colombian Peso", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "COL$" }, currency.Symbols);
+            Assert.Equal("COL$", currency.DisambiguateSymbol);
+            Assert.Equal("Centavo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(",", currency.DecimalMark);
+            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(170, currency.Number);
+            Assert.Equal(20, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void CRC()
+        {
+            const string symbol = "₡";
+            var currency = Currency.CRC;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CRC", currency.Code);
+            Assert.Equal("Costa Rican Colón", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "¢" }, currency.Symbols);
+            Assert.Equal("Céntimo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(",", currency.DecimalMark);
+            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(188, currency.Number);
+            Assert.Equal(500, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void CUC()
+        {
+            const string symbol = "$";
+            var currency = Currency.CUC;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CUC", currency.Code);
+            Assert.Equal("Cuban Convertible Peso", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "CUC$" }, currency.Symbols);
+            Assert.Equal("Centavo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(931, currency.Number);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void CUP()
+        {
+            const string symbol = "$";
+            var currency = Currency.CUP;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CUP", currency.Code);
+            Assert.Equal("Cuban Peso", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "$MN" }, currency.Symbols);
+            Assert.Equal("Centavo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(192, currency.Number);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void CVE()
+        {
+            const string symbol = "$";
+            var currency = Currency.CVE;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CVE", currency.Code);
+            Assert.Equal(132, currency.Number);
+            Assert.Equal("Cape Verdean Escudo", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "Esc" }, currency.Symbols);
+            Assert.Equal("Centavo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(100, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void CZK()
+        {
+            const string symbol = "Kč";
+            var currency = Currency.CZK;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("CZK", currency.Code);
+            Assert.Equal(203, currency.Number);
+            Assert.Equal("Czech Koruna", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("Haléř", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(",", currency.DecimalMark);
+            Assert.Equal(" ", currency.ThousandsSeparator);
+            Assert.Equal(100, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+
+        [Fact]
+        public void DJF()
+        {
+            const string symbol = "Fdj";
+            var currency = Currency.DJF;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("DJF", currency.Code);
+            Assert.Equal("Djiboutian Franc", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("Centime", currency.SubUnit);
+            Assert.Equal(1, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(262, currency.Number);
+            Assert.Equal(100, currency.SmallestDenomination);
+        }
+
+        [Fact]
+        public void DKK()
+        {
+            const string symbol = "kr.";
+            var currency = Currency.DKK;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("DKK", currency.Code);
+            Assert.Equal("Danish Krone", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, ",-" }, currency.Symbols);
+            Assert.Equal("DKK", currency.DisambiguateSymbol);
+            Assert.Equal("Øre", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(",", currency.DecimalMark);
+            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(208, currency.Number);
+            Assert.Equal(50, currency.SmallestDenomination);
+        }
+
+        [Fact]
+        public void DOP()
+        {
+            const string symbol = "$";
+            var currency = Currency.DOP;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("DOP", currency.Code);
+            Assert.Equal("Dominican Peso", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "RD$" }, currency.Symbols);
+            Assert.Equal("RD$", currency.DisambiguateSymbol);
+            Assert.Equal("Centavo", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(214, currency.Number);
+            Assert.Equal(100, currency.SmallestDenomination);
+        }
+
+        [Fact]
         public void DZD()
         {
             const string symbol = "د.ج";
@@ -829,6 +1076,7 @@ namespace Money.Tests
             Assert.Equal(012, currency.Number);
             Assert.Equal(100, currency.SmallestDenomination);
         }
+
 
         [Fact]
         public void EGP()
@@ -853,6 +1101,28 @@ namespace Money.Tests
 
             Assert.True(currency.IsIso);
             Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void ERN()
+        {
+            const string symbol = "Nfk";
+            var currency = Currency.ERN;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("ERN", currency.Code);
+            Assert.Equal(232, currency.Number);
+            Assert.Equal("Eritrean Nakfa", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("Cent", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
         }
 
         [Fact]
@@ -881,6 +1151,185 @@ namespace Money.Tests
         }
 
         [Fact]
+        public void EUR()
+        {
+            const string symbol = "€";
+            var currency = Currency.EUR;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("EUR", currency.Code);
+            Assert.Equal(978, currency.Number);
+            Assert.Equal("Euro", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("Cent", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(",", currency.DecimalMark);
+            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+
+        [Fact]
+        public void FJD()
+        {
+            const string symbol = "$";
+            var currency = Currency.FJD;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("FJD", currency.Code);
+            Assert.Equal(242, currency.Number);
+            Assert.Equal("Fijian Dollar", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "FJ$" }, currency.Symbols);
+            Assert.Equal("Cent", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(5, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void FKP()
+        {
+            const string symbol = "£";
+            var currency = Currency.FKP;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("FKP", currency.Code);
+            Assert.Equal(238, currency.Number);
+            Assert.Equal("Falkland Pound", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "FK£" }, currency.Symbols);
+            Assert.Equal("Penny", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+
+        [Fact]
+        public void GBP()
+        {
+            const string symbol = "£";
+            var currency = Currency.GBP;
+
+            Assert.Equal(3, currency.Priority);
+            Assert.Equal("GBP", currency.Code);
+            Assert.Equal(826, currency.Number);
+            Assert.Equal("British Pound", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("Penny", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void GEL()
+        {
+            const string symbol = "ლ";
+            var currency = Currency.GEL;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("GEL", currency.Code);
+            Assert.Equal(981, currency.Number);
+            Assert.Equal("Georgian Lari", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "lari" }, currency.Symbols);
+            Assert.Equal("Tetri", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.False(currency.SymbolFirst);
+            Assert.Equal("%n %u", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void GHS()
+        {
+            const string symbol = "₵";
+            var currency = Currency.GHS;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("GHS", currency.Code);
+            Assert.Equal(936, currency.Number);
+            Assert.Equal("Ghanaian Cedi", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol, "GH¢", "GH₵" }, currency.Symbols);
+            Assert.Equal("Pesewa", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+        [Fact]
+        public void GIP()
+        {
+            const string symbol = "£";
+            var currency = Currency.GIP;
+
+            Assert.Equal(100, currency.Priority);
+            Assert.Equal("GIP", currency.Code);
+            Assert.Equal(292, currency.Number);
+            Assert.Equal("Gibraltar Pound", currency.Name);
+            Assert.Equal(symbol, currency.Symbol);
+            Assert.Equal(new[] { symbol }, currency.Symbols);
+            Assert.Equal("GIP", currency.DisambiguateSymbol);
+            Assert.Equal("Penny", currency.SubUnit);
+            Assert.Equal(100, currency.SubUnitToUnit);
+            Assert.True(currency.SymbolFirst);
+            Assert.Equal("%u %n", currency.Format);
+            Assert.Null(currency.HtmlEntity);
+            Assert.Equal(".", currency.DecimalMark);
+            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(1, currency.SmallestDenomination);
+
+            Assert.True(currency.IsIso);
+            Assert.Equal(2, currency.Exponent);
+        }
+
+
+        [Fact]
         public void IQD()
         {
             const string symbol = "ع.د";
@@ -904,6 +1353,7 @@ namespace Money.Tests
             Assert.True(currency.IsIso);
             Assert.Equal(3, currency.Exponent);
         }
+
 
         [Fact]
         public void JOD()
@@ -930,6 +1380,7 @@ namespace Money.Tests
             Assert.Equal(3, currency.Exponent);
         }
 
+
         [Fact]
         public void KWD()
         {
@@ -954,6 +1405,7 @@ namespace Money.Tests
             Assert.True(currency.IsIso);
             Assert.Equal(3, currency.Exponent);
         }
+
 
         [Fact]
         public void LBP()
@@ -980,6 +1432,7 @@ namespace Money.Tests
             Assert.Equal(2, currency.Exponent);
         }
 
+
         [Fact]
         public void SEK()
         {
@@ -1005,6 +1458,7 @@ namespace Money.Tests
             Assert.Equal(2, currency.Exponent);
         }
 
+
         [Fact]
         public void USD()
         {
@@ -1029,6 +1483,7 @@ namespace Money.Tests
             Assert.True(currency.IsIso);
             Assert.Equal(2, currency.Exponent);
         }
+
 
         [Fact]
         public void ZAR()
