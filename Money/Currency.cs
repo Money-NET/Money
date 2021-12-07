@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using Money.Exceptions;
 
 namespace Money
@@ -12,42 +13,57 @@ namespace Money
 
         #region Currencies
 
-        public static readonly Currency AED = new Currency("AED", 784, "United Arab Emirates Dirham", "%n %u", "Fils", 100, 25, ".", "," ,new[] { "د.إ.‏", "DH", "Dhs" });
+        public static readonly Currency AED = new Currency("AED", 784, "United Arab Emirates Dirham", "%n %u", "Fils", 100, 25, ".", ",", new[] { "د.إ.‏", "DH", "Dhs" });
         public static readonly Currency AFN = new Currency("AFN", 971, "Afghan Afghani", "%n %u", "Pul", 100, 100, ".", ",", new[] { "؋", "Af", "Afs" });
         public static readonly Currency ALL = new Currency("ALL", 008, "Albanian Lek", "%n %u", "Qintar", 100, 100, ".", ",", new[] { "Lekë", "Lek" });
         public static readonly Currency AMD = new Currency("AMD", 051, "Armenian Dram", "%n %u", "Luma", 100, 10, ".", ",", new[] { "֏", "dram" });
-        public static readonly Currency ANG = new Currency("ANG", 532, "Netherlands Antillean Gulden", "%u %n", "Cent", 100, 1, ",", ".", new [] { "ƒ", "NAƒ", "NAf", "f" }, symbolFirst: true);
-        public static readonly Currency AOA = new Currency("AOA", 973, "Angolan Kwanza", "%n %u", "Cêntimo", 100, 10, ".", ",", new [] { "Kz" });
-        public static readonly Currency ARS = new Currency("ARS", 032, "Argentine Peso", "%n %u", "Centavo", 100, 1, ",", ".", new [] { "$", "$m/n", "m$n" }, disambiguateSymbol: "$m/n", symbolFirst: true);
-        public static readonly Currency AUD = new Currency("AUD", 036, "Australian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new []{ "$", "A$" }, disambiguateSymbol: "A$", priority: 4, symbolFirst: true);
-        public static readonly Currency AWG = new Currency("AWG", 533, "Aruban Florin", "%n %u", "Cent", 100, 5, ".", ",", new []{ "ƒ", "Afl" });
-        public static readonly Currency AZN = new Currency("AZN", 944, "Azerbaijani Manat", "%u %n", "Qəpik", 100, 1, ".", ",", new [] { "₼", "m", "man" }, symbolFirst: true);
+        public static readonly Currency ANG = new Currency("ANG", 532, "Netherlands Antillean Gulden", "%u %n", "Cent", 100, 1, ",", ".", new[] { "ƒ", "NAƒ", "NAf", "f" }, symbolFirst: true);
+        public static readonly Currency AOA = new Currency("AOA", 973, "Angolan Kwanza", "%n %u", "Cêntimo", 100, 10, ".", ",", new[] { "Kz" });
+        public static readonly Currency ARS = new Currency("ARS", 032, "Argentine Peso", "%n %u", "Centavo", 100, 1, ",", ".", new[] { "$", "$m/n", "m$n" }, disambiguateSymbol: "$m/n", symbolFirst: true);
+        public static readonly Currency AUD = new Currency("AUD", 036, "Australian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new[] { "$", "A$" }, disambiguateSymbol: "A$", priority: 4, symbolFirst: true);
+        public static readonly Currency AWG = new Currency("AWG", 533, "Aruban Florin", "%n %u", "Cent", 100, 5, ".", ",", new[] { "ƒ", "Afl" });
+        public static readonly Currency AZN = new Currency("AZN", 944, "Azerbaijani Manat", "%u %n", "Qəpik", 100, 1, ".", ",", new[] { "₼", "m", "man" }, symbolFirst: true);
 
-        public static readonly Currency BAM = new Currency("BAM", 977, "Bosnia-Herzegovina Convertible Mark", "%u %n", "Fening", 100, 5, ".", ",", new [] { "КМ", "KM" }, symbolFirst: true);
-        public static readonly Currency BBD = new Currency("BBD", 052, "Barbadian Dollar", "%u %n", "Cent", 100, 1, ".", ",", new [] { "$", "Bds$" }, disambiguateSymbol: "Bds$", symbolFirst: true);
-        public static readonly Currency BDT = new Currency("BDT", 050, "Bangladeshi Taka", "%u %n", "Paisa", 100, 1, ".", ",", new [] { "৳", "Tk" }, symbolFirst: true);
-        public static readonly Currency BGN = new Currency("BGN", 975, "Bulgarian Lev", "%n %u", "Stotinka", 100, 1, ".", ",", new [] { "лв.", "lev", "leva", "лев", "лева" });
+        public static readonly Currency BAM = new Currency("BAM", 977, "Bosnia-Herzegovina Convertible Mark", "%u %n", "Fening", 100, 5, ".", ",", new[] { "КМ", "KM" }, symbolFirst: true);
+        public static readonly Currency BBD = new Currency("BBD", 052, "Barbadian Dollar", "%u %n", "Cent", 100, 1, ".", ",", new[] { "$", "Bds$" }, disambiguateSymbol: "Bds$", symbolFirst: true);
+        public static readonly Currency BDT = new Currency("BDT", 050, "Bangladeshi Taka", "%u %n", "Paisa", 100, 1, ".", ",", new[] { "৳", "Tk" }, symbolFirst: true);
+        public static readonly Currency BGN = new Currency("BGN", 975, "Bulgarian Lev", "%n %u", "Stotinka", 100, 1, ".", ",", new[] { "лв.", "lev", "leva", "лев", "лева" });
         public static readonly Currency BHD = new Currency("BHD", 048, "Bahraini Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ب", "BD" }, symbolFirst: true);
+        public static readonly Currency BIF = new Currency("BIF", 108, "Burundian Franc", "%n %u", "Centime", 1, 100, ".", ",", new[] { "Fr", "FBu" });
+        public static readonly Currency BMD = new Currency("BMD", 060, "Bermudian Dollar", "%u %n", "Cent", 100, 1, ".", ",", new[] { "$", "BD$" }, symbolFirst: true);
+        public static readonly Currency BND = new Currency("BND", 096, "Brunei Dollar", "%u %n", "Sen", 100, 1, ".", ",", new[] { "$", "B$", "BND" }, disambiguateSymbol: "BND", symbolFirst: true);
+        public static readonly Currency BOB = new Currency("BOB", 068, "Bolivian Boliviano", "%u %n", "Centavo", 100, 10, ".", ",", new[] { "Bs.", "Bs" }, symbolFirst: true);
+        public static readonly Currency BRL = new Currency("BRL", 986, "Brazilian Real", "%u %n", "Centavo", 100, 5, ",", ".", new[] { "R$" }, symbolFirst: true);
+        public static readonly Currency BSD = new Currency("BSD", 044, "Bahamian Dollar", "%u %n", "Cent", 100, 1, ".", ",", new[] { "$", "B$" }, disambiguateSymbol: "BSD", symbolFirst: true);
+        public static readonly Currency BTN = new Currency("BTN", 064, "Bhutanese Ngultrum", "%n %u", "Chertrum", 100, 5, ".", ",", new[] { "Nu.", "Nu" });
+        public static readonly Currency BWP = new Currency("BWP", 072, "Botswana Pula", "%u %n", "Thebe", 100, 5, ".", ",", new[] { "P" }, symbolFirst: true);
+        public static readonly Currency BYN = new Currency("BYN", 933, "Belarusian Ruble", "%n %u", "Kapeyka", 100, 1, ",", " ", new[] { "Br", "бел. руб.", "б.р.", "руб.", "р." }, disambiguateSymbol: "BYN");
+        public static readonly Currency BYR = new Currency("BYR", 974, "Belarusian Ruble", "%n %u", null, 1, 100, ",", " ", new[] { "Br", "бел. руб.", "б.р.", "руб.", "р." }, disambiguateSymbol: "BYR", priority: 50);
+        public static readonly Currency BZD = new Currency("BZD", 084, "Belize Dollar", "%u %n", "Cent", 100, 1, ".", ",", new [] { "$", "BZ$" }, disambiguateSymbol: "BZ$", symbolFirst: true);
 
-        public static readonly Currency CHF = new Currency("CHF", 756, "Swiss Franc", "%u%n", "Rappen", 100, 5, ".", "’", new [] { "CHF", "SFr", "Fr" }, symbolFirst: true);
+        public static readonly Currency CAD = new Currency("CAD", 124, "Canadian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new [] { "$", "C$", "CAD$" }, disambiguateSymbol: "C$", symbolFirst: true);
+        public static readonly Currency CDF = new Currency("CDF", 976, "Congolese Franc", "%n %u", "Centime", 100, 1, ".", ",", new [] { "Fr", "FC" }, disambiguateSymbol: "FC");
+        public static readonly Currency CHF = new Currency("CHF", 756, "Swiss Franc", "%u%n", "Rappen", 100, 5, ".", "’", new[] { "CHF", "SFr", "Fr" }, symbolFirst: true);
+        public static readonly Currency CLF = new Currency("CLF", 990, "Unidad de Fomento", "%u %n", "Peso", 10000, 1, ",", ".", new[] { "UF" }, symbolFirst: true);
+        public static readonly Currency CLP = new Currency("CLP", 152, "Chilean Peso", "%u %n", "Peso", 1, 1, ",", ".", new[] { "$" }, disambiguateSymbol: "CLP", symbolFirst: true);
 
         public static readonly Currency DZD = new Currency("DZD", 012, "Algerian Dinar", "%n %u", "Centime", 100, 100, ".", ",", new[] { "د.ج", "DA" });
 
         public static readonly Currency EGP = new Currency("EGP", 818, "Egyptian Pound", "%u %n", "Piastre", 100, 25, ".", ",", new[] { "ج.م", "LE", "E£", "L.E." }, symbolFirst: true);
-        public static readonly Currency ETB = new Currency("ETB", 230, "Ethiopian Birr", "%n %u", "Santim", 100, 1, ".", ",", new [] { "Br", "ብር" });
+        public static readonly Currency ETB = new Currency("ETB", 230, "Ethiopian Birr", "%n %u", "Santim", 100, 1, ".", ",", new[] { "Br", "ብር" });
 
-        public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new [] { "ع.د" });
+        public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new[] { "ع.د" });
 
         public static readonly Currency JOD = new Currency("JOD", 400, "Jordanian Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ا", "JD" });
         public static readonly Currency KWD = new Currency("KWD", 414, "Kuwaiti Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ك", "K.D." }, symbolFirst: true);
 
         public static readonly Currency LBP = new Currency("LBP", 422, "Lebanese Pound", "%u %n", "Piastre", 100, 25000, ".", ",", new[] { "ل.ل", "£", "L£" }, symbolFirst: true);
 
-        public static readonly Currency SEK = new Currency("SEK", 752, "Swedish Krona", "%n %u", "Öre", 100, 100, ",", " ", new [] { "kr", ":-" });
+        public static readonly Currency SEK = new Currency("SEK", 752, "Swedish Krona", "%n %u", "Öre", 100, 100, ",", " ", new[] { "kr", ":-" });
 
-        public static readonly Currency USD = new Currency("USD", 840, "United States Dollar", "%u %n", "Cent", 100, 1, ".", ",", new []{ "$", "US$" }, symbolFirst: true);
+        public static readonly Currency USD = new Currency("USD", 840, "United States Dollar", "%u %n", "Cent", 100, 1, ".", ",", new[] { "$", "US$" }, symbolFirst: true);
 
-        public static readonly Currency ZAR = new Currency("ZAR", 710, "South African Rand", "%u %n", "Cent", 100, 10, ".", ",", new [] { "R" }, symbolFirst: true);
+        public static readonly Currency ZAR = new Currency("ZAR", 710, "South African Rand", "%u %n", "Cent", 100, 10, ".", ",", new[] { "R" }, symbolFirst: true);
 
         #endregion
 
