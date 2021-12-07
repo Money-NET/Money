@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Money.Exceptions;
 
@@ -13,22 +12,42 @@ namespace Money
 
         #region Currencies
 
-        public static readonly Currency AED = new Currency(CultureInfo.GetCultureInfo("ar-AE"), 100, 784, "Fils", 100, 25, new[] { "DH", "Dhs" });
-        public static readonly Currency AFN = new Currency(CultureInfo.GetCultureInfo("ps-AF"), 100, 971, "Pul", 100, 100, new[] { "Af", "Afs" });
-        public static readonly Currency ALL = new Currency(CultureInfo.GetCultureInfo("sq-AL"), 100, 008, "Qintar", 100, 100, new[] { "Lek" });
-        public static readonly Currency AMD = new Currency(CultureInfo.GetCultureInfo("hy-AM"), 100, 051, "Luma", 100, 10, new[] { "dram" });
-        public static readonly Currency BHD = new Currency(CultureInfo.GetCultureInfo("ar-BH"), 100, 048, "Fils", 1000, 5, new[] { "BD" }, symbolFirst: true);
-        public static readonly Currency CHF = new Currency(CultureInfo.GetCultureInfo("de-CH"), 100, 756, "Rappen", 100, 5, new [] { "SFr", "Fr" }, format: "%u%n", symbolFirst: true);
-        public static readonly Currency DZD = new Currency(CultureInfo.GetCultureInfo("ar-DZ"), 100, 012, "Centime", 100, 100, new[] { "DA" });
-        public static readonly Currency EGP = new Currency(CultureInfo.GetCultureInfo("ar-EG"), 100, 818, "Piastre", 100, 25, new[] { "LE", "E£", "L.E." }, symbolFirst: true);
-        public static readonly Currency ETB = new Currency(CultureInfo.GetCultureInfo("am-ET"), 100, 230, "Santim", 100, 1);
-        public static readonly Currency IQD = new Currency(CultureInfo.GetCultureInfo("ar-IQ"), 100, 368, "Fils", 1000, 50000);
-        public static readonly Currency JOD = new Currency(CultureInfo.GetCultureInfo("ar-JO"), 100, 400, "Fils", 1000, 5, new[] { "JD" });
-        public static readonly Currency KWD = new Currency(CultureInfo.GetCultureInfo("ar-KW"), 100, 414, "Fils", 1000, 5, new[] { "K.D." });
-        public static readonly Currency LBP = new Currency(CultureInfo.GetCultureInfo("ar-LB"), 100, 422, "Piastre", 100, 25000, new[] { "£", "L£" }, symbolFirst: true);
-        public static readonly Currency SEK = new Currency(CultureInfo.GetCultureInfo("sv-SE"), 100, 752, "Öre", 100, 100, new []{ ":-" });
-        public static readonly Currency USD = new Currency(CultureInfo.GetCultureInfo("en-US"), 100, 840, "Cent", 100, 1, new []{ "US$" }, symbolFirst: true);
-        public static readonly Currency ZAR = new Currency(CultureInfo.GetCultureInfo("af-ZA"), 100, 710, "Cent", 100, 10, symbolFirst: true);
+        public static readonly Currency AED = new Currency("AED", 784, "United Arab Emirates Dirham", "%n %u", "Fils", 100, 25, ".", "," ,new[] { "د.إ.‏", "DH", "Dhs" });
+        public static readonly Currency AFN = new Currency("AFN", 971, "Afghan Afghani", "%n %u", "Pul", 100, 100, ".", ",", new[] { "؋", "Af", "Afs" });
+        public static readonly Currency ALL = new Currency("ALL", 008, "Albanian Lek", "%n %u", "Qintar", 100, 100, ".", ",", new[] { "Lekë", "Lek" });
+        public static readonly Currency AMD = new Currency("AMD", 051, "Armenian Dram", "%n %u", "Luma", 100, 10, ".", ",", new[] { "֏", "dram" });
+        public static readonly Currency ANG = new Currency("ANG", 532, "Netherlands Antillean Gulden", "%u %n", "Cent", 100, 1, ",", ".", new [] { "ƒ", "NAƒ", "NAf", "f" }, symbolFirst: true);
+        public static readonly Currency AOA = new Currency("AOA", 973, "Angolan Kwanza", "%n %u", "Cêntimo", 100, 10, ".", ",", new [] { "Kz" });
+        public static readonly Currency ARS = new Currency("ARS", 032, "Argentine Peso", "%n %u", "Centavo", 100, 1, ",", ".", new [] { "$", "$m/n", "m$n" }, disambiguateSymbol: "$m/n", symbolFirst: true);
+        public static readonly Currency AUD = new Currency("AUD", 036, "Australian Dollar", "%u %n", "Cent", 100, 5, ".", ",", new []{ "$", "A$" }, disambiguateSymbol: "A$", priority: 4, symbolFirst: true);
+        public static readonly Currency AWG = new Currency("AWG", 533, "Aruban Florin", "%n %u", "Cent", 100, 5, ".", ",", new []{ "ƒ", "Afl" });
+        public static readonly Currency AZN = new Currency("AZN", 944, "Azerbaijani Manat", "%u %n", "Qəpik", 100, 1, ".", ",", new [] { "₼", "m", "man" }, symbolFirst: true);
+
+        public static readonly Currency BAM = new Currency("BAM", 977, "Bosnia-Herzegovina Convertible Mark", "%u %n", "Fening", 100, 5, ".", ",", new [] { "КМ", "KM" }, symbolFirst: true);
+        public static readonly Currency BBD = new Currency("BBD", 052, "Barbadian Dollar", "%u %n", "Cent", 100, 1, ".", ",", new [] { "$", "Bds$" }, disambiguateSymbol: "Bds$", symbolFirst: true);
+        public static readonly Currency BDT = new Currency("BDT", 050, "Bangladeshi Taka", "%u %n", "Paisa", 100, 1, ".", ",", new [] { "৳", "Tk" }, symbolFirst: true);
+        public static readonly Currency BGN = new Currency("BGN", 975, "Bulgarian Lev", "%n %u", "Stotinka", 100, 1, ".", ",", new [] { "лв.", "lev", "leva", "лев", "лева" });
+        public static readonly Currency BHD = new Currency("BHD", 048, "Bahraini Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ب", "BD" }, symbolFirst: true);
+
+        public static readonly Currency CHF = new Currency("CHF", 756, "Swiss Franc", "%u%n", "Rappen", 100, 5, ".", "’", new [] { "CHF", "SFr", "Fr" }, symbolFirst: true);
+
+        public static readonly Currency DZD = new Currency("DZD", 012, "Algerian Dinar", "%n %u", "Centime", 100, 100, ".", ",", new[] { "د.ج", "DA" });
+
+        public static readonly Currency EGP = new Currency("EGP", 818, "Egyptian Pound", "%u %n", "Piastre", 100, 25, ".", ",", new[] { "ج.م", "LE", "E£", "L.E." }, symbolFirst: true);
+        public static readonly Currency ETB = new Currency("ETB", 230, "Ethiopian Birr", "%n %u", "Santim", 100, 1, ".", ",", new [] { "Br", "ብር" });
+
+        public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new [] { "ع.د" });
+
+        public static readonly Currency JOD = new Currency("JOD", 400, "Jordanian Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ا", "JD" });
+        public static readonly Currency KWD = new Currency("KWD", 414, "Kuwaiti Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ك", "K.D." }, symbolFirst: true);
+
+        public static readonly Currency LBP = new Currency("LBP", 422, "Lebanese Pound", "%u %n", "Piastre", 100, 25000, ".", ",", new[] { "ل.ل", "£", "L£" }, symbolFirst: true);
+
+        public static readonly Currency SEK = new Currency("SEK", 752, "Swedish Krona", "%n %u", "Öre", 100, 100, ",", " ", new [] { "kr", ":-" });
+
+        public static readonly Currency USD = new Currency("USD", 840, "United States Dollar", "%u %n", "Cent", 100, 1, ".", ",", new []{ "$", "US$" }, symbolFirst: true);
+
+        public static readonly Currency ZAR = new Currency("ZAR", 710, "South African Rand", "%u %n", "Cent", 100, 10, ".", ",", new [] { "R" }, symbolFirst: true);
 
         #endregion
 
@@ -40,70 +59,77 @@ namespace Money
         public decimal? Number { get; }
         public string Name { get; }
         public string Format { get; set; }
+
+        public string Symbol => Symbols.First();
         public string[] Symbols { get; }
         public bool SymbolFirst { get; }
+        public string DisambiguateSymbol { get; }
+        public string HtmlEntity { get; }
 
-        public string Centesimal { get; }
-        public int CentesimalConversion { get; }
+        public string SubUnit { get; }
+        public int SubUnitToUnit { get; }
 
         public string DecimalMark { get; }
         public string ThousandsSeparator { get; }
         public int SmallestDenomination { get; }
-        public string HtmlEntity { get; }
-
-        public string Symbol => Symbols.First();
 
         #endregion
 
         #region Constructors
+        //private Currency(
+        //    CultureInfo culture,
+        //    decimal number,
+        //    string subUnit,
+        //    int subUnitToUnit,
+        //    int smallestDenomination,
+        //    IEnumerable<string> alternateSymbols = null,
+        //    string disambiguateSymbol = null,
+        //    string format = null,
+        //    string htmlEntity = null,
+        //    int priority = 100,
+        //    bool symbolFirst = false)
+        //{
+        //    var region = new RegionInfo(culture.Name);
+        //    var symbols = new List<string> { culture.NumberFormat.CurrencySymbol };
+
+        //    if (alternateSymbols != null && alternateSymbols.Any())
+        //        symbols.AddRange(alternateSymbols);
+
+        //    Priority = priority;
+        //    Code = region.ISOCurrencySymbol;
+        //    Number = number;
+        //    Name = region.CurrencyEnglishName;
+        //    Format = string.IsNullOrWhiteSpace(format) ? symbolFirst ? "%u %n" : "%n %u" : format;
+
+        //    Symbols = symbols.ToArray();
+        //    SymbolFirst = symbolFirst;
+        //    DisambiguateSymbol = disambiguateSymbol;
+        //    HtmlEntity = htmlEntity;
+
+        //    SubUnit = subUnit;
+        //    SubUnitToUnit = subUnitToUnit;
+
+        //    DecimalMark = culture.NumberFormat.CurrencyDecimalSeparator;
+        //    ThousandsSeparator = culture.NumberFormat.CurrencyGroupSeparator;
+        //    SmallestDenomination = smallestDenomination;
+
+        //    Currencies.AddOrUpdate(Code, this, (k, v) => v);
+        //}
+
         private Currency(
-            CultureInfo culture,
-            int priority,
-            decimal number,
-            string centesimal,
-            int centesimalConversion,
-            int smallestDenomination,
-            IEnumerable<string> alternateSymbols = null,
-            string format = null,
-            bool symbolFirst = false,
-            string htmlEntity = null)
-        {
-            var region = new RegionInfo(culture.Name);
-            var symbols = new List<string> { culture.NumberFormat.CurrencySymbol };
-
-            if (alternateSymbols != null && alternateSymbols.Any())
-                symbols.AddRange(alternateSymbols);
-
-            Priority = priority;
-            Code = region.ISOCurrencySymbol;
-            Number = number;
-            Name = region.CurrencyEnglishName;
-            Format = string.IsNullOrWhiteSpace(format) ? symbolFirst ? "%u %n" : "%n %u" : format;
-            Symbols = symbols.ToArray();
-            SymbolFirst = symbolFirst;
-            Centesimal = centesimal;
-            CentesimalConversion = centesimalConversion;
-            DecimalMark = culture.NumberFormat.CurrencyDecimalSeparator;
-            ThousandsSeparator = culture.NumberFormat.CurrencyGroupSeparator;
-            SmallestDenomination = smallestDenomination;
-            HtmlEntity = htmlEntity;
-
-            Currencies.AddOrUpdate(Code, this, (k, v) => v);
-        }
-
-        private Currency(
-            int priority,
             string code,
             decimal number,
             string name,
             string format,
-            string centesimal,
-            int centesimalConversion,
+            string subUnit,
+            int subUnitToUnit,
+            int smallestDenomination,
             string decimalMark,
             string thousandsSeparator,
-            int smallestDenomination,
             IEnumerable<string> symbols,
+            string disambiguateSymbol = null,
             bool symbolFirst = false,
+            int priority = 100,
             string htmlEntity = null)
         {
 
@@ -112,14 +138,18 @@ namespace Money
             Number = number;
             Name = name;
             Format = format;
+
             Symbols = symbols.ToArray();
             SymbolFirst = symbolFirst;
-            Centesimal = centesimal;
-            CentesimalConversion = centesimalConversion;
+            DisambiguateSymbol = disambiguateSymbol;
+            HtmlEntity = htmlEntity;
+
+            SubUnit = subUnit;
+            SubUnitToUnit = subUnitToUnit;
+
             DecimalMark = decimalMark;
             ThousandsSeparator = thousandsSeparator;
             SmallestDenomination = smallestDenomination;
-            HtmlEntity = htmlEntity;
 
             Currencies.AddOrUpdate(Code, this, (k, v) => v);
         }
@@ -222,7 +252,7 @@ namespace Money
         ///  @see https://en.wikipedia.org/wiki/ISO_4217#Active_codes
         /// </summary>
         /// <returns>[Integer]</returns>
-        public int Exponent => (int)Math.Round(Math.Log10(CentesimalConversion), MidpointRounding.ToEven);
+        public int Exponent => (int)Math.Round(Math.Log10(SubUnitToUnit), MidpointRounding.ToEven);
 
         /// <summary>
         /// Returns if a code currency is ISO.

@@ -111,7 +111,7 @@ namespace Money.Bank
             //    BigDecimal(from.currency.subunit_to_unit.to_s) /
             //    BigDecimal(to_currency.subunit_to_unit.to_s)
             //)
-            return (decimal)((decimal)from.CentesimalConversion / (decimal)to.CentesimalConversion);
+            return (decimal)((decimal)from.SubUnitToUnit / (decimal)to.SubUnitToUnit);
         }
     }
 }

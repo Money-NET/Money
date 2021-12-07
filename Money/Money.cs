@@ -42,7 +42,7 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
-            Fractional = (int)Math.Round((value * currency.CentesimalConversion), rounding);
+            Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
-            Fractional = (int)Math.Round((value * currency.CentesimalConversion), rounding);
+            Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>
