@@ -70,7 +70,21 @@ namespace Money
         public static readonly Currency GEL = new Currency("GEL", 981, "Georgian Lari", "%n %u", "Tetri", 100, 1, ".", ",", new [] { "ლ", "lari" });
         public static readonly Currency GHS = new Currency("GHS", 936, "Ghanaian Cedi", "%u %n", "Pesewa", 100, 1, ".", ",", new [] { "₵", "GH¢", "GH₵" }, symbolFirst: true);
         public static readonly Currency GIP = new Currency("GIP", 292, "Gibraltar Pound", "%u %n", "Penny", 100, 1, ".", ",", new [] { "£" }, disambiguateSymbol: "GIP", symbolFirst: true);
+        public static readonly Currency GMD = new Currency("GMD", 270, "Gambian Dalasi", "%n %u", "Butut", 100, 1, ".", ",", new [] { "D" });
+        public static readonly Currency GNF = new Currency("GNF", 324, "Guinean Franc", "%n %u", "Centime", 1, 100, ".", ",", new [] { "Fr", "FG", "GFr" }, disambiguateSymbol: "FG");
+        public static readonly Currency GTQ = new Currency("GTQ", 320, "Guatemalan Quetzal", "%u %n", "Centavo", 100, 1, ".", ",", new [] { "Q" }, symbolFirst: true);
+        public static readonly Currency GYD = new Currency("GYD", 328, "Guyanese Dollar", "%n %u", "Cent", 100, 100, ".", ",", new [] { "$", "G$" }, disambiguateSymbol: "G$");
 
+        public static readonly Currency HKD = new Currency("HKD", 344, "Hong Kong Dollar", "%u %n", "Cent", 100, 10, ".", ",", new [] { "$", "HK$" }, disambiguateSymbol: "HK$", symbolFirst: true);
+        public static readonly Currency HNL = new Currency("HNL", 340, "Honduran Lempira", "%u %n", "Centavo", 100, 5, ".", ",", new [] { "L" }, disambiguateSymbol: "HNL", symbolFirst: true);
+        public static readonly Currency HRK = new Currency("HRK", 191, "Croatian Kuna", "%n %u", "Lipa", 100, 1, ",", ".", new [] { "kn" });
+        public static readonly Currency HTG = new Currency("HTG", 332, "Haitian Gourde", "%n %u", "Centime", 100, 5, ".", ",", new [] { "G" });
+        public static readonly Currency HUF = new Currency("HUF", 348, "Hungarian Forint", "%n %u", string.Empty, 1, 5, ",", " ", new [] { "Ft" });
+
+        public static readonly Currency IDR = new Currency("IDR", 360, "Indonesian Rupiah", "%u %n", "Sen", 100, 5000, ",", ".", new [] { "Rp" }, symbolFirst: true);
+        public static readonly Currency ILS = new Currency("ILS", 376, "Israeli New Sheqel", "%u %n", "Agora", 100, 10, ".", ",", new[] { "₪", "ש״ח", "NIS" }, symbolFirst: true);
+        public static readonly Currency INR = new Currency("INR", 356, "Indian Rupee", "%u %n", "Paisa", 100, 50, ".", ",", new[] { "₹", "Rs", "৳", "૱", "௹", "रु", "₨" }, symbolFirst: true);
+        public static readonly Currency IRR = new Currency("IRR", 364, "Iranian Rial", "%u %n", string.Empty, 100, 5000, ".", ",", new[] { "﷼" }, symbolFirst: true);
         public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new[] { "ع.د" });
 
         public static readonly Currency JOD = new Currency("JOD", 400, "Jordanian Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ا", "JD" });
