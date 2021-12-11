@@ -1,5 +1,6 @@
 ﻿using System;
 using Money.Bank.Interfaces;
+using Money.Formatting;
 
 namespace Money
 {
@@ -19,14 +20,13 @@ namespace Money
         public IBank Bank;
         public Currency Currency;
         public Formatter Formatter;
-        public int Fractional;
+        public long Fractional;
         public MidpointRounding Rounding = MidpointRounding.ToEven;
 
         protected Money(MidpointRounding rounding = MidpointRounding.ToEven)
         {
             Bank = new Bank.VariableExchange();
             Rounding = rounding;
-
         }
 
         #region Constructors
@@ -43,7 +43,7 @@ namespace Money
         {
             Currency = currency;
             Formatter = new Formatter(Currency);
-            Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
+            Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Money
         {
             Currency = currency;
             Formatter = new Formatter(Currency);
-            Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
+            Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>
@@ -74,14 +74,16 @@ namespace Money
             Formatter = new Formatter(Currency);
             Fractional = cents;
         }
-        #endregion
-
-
-        #region Bank
 
         #endregion
 
         #region Methods
+
+        //TODO: Move to Arithmetic.cs?
+        public bool Positive => Fractional > 0;
+        public bool Negative => Fractional < 0;
+
+
         /// <summary>
         /// Round a given amount of money to the nearest possible amount in cash value. For
         /// example, in Swiss franc (CHF), the smallest possible amount of cash value is
@@ -109,13 +111,23 @@ namespace Money
 
             return this;
         }
+
         #endregion
 
         #region Overrides
 
+        /// <summary>
+        /// Creates a formatted price string according to several rules.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Formatter.Format(this);
+        }
+
+        public string ToString(Rules rules)
+        {
+            return new Formatter(Currency, rules).Format(this);
         }
 
         #endregion

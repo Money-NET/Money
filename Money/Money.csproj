@@ -5,4 +5,8 @@
     <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

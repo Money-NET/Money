@@ -32,17 +32,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("AED", currency.Code);
+            Assert.Equal(784, currency.Number);
             Assert.Equal("United Arab Emirates Dirham", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "DH", "Dhs" }, currency.Symbols);
             Assert.Equal("Fils", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(784, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(25, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -57,17 +55,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("AFN", currency.Code);
+            Assert.Equal(971, currency.Number);
             Assert.Equal("Afghan Afghani", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Af", "Afs" }, currency.Symbols);
             Assert.Equal("Pul", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(971, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -82,17 +78,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("ALL", currency.Code);
+            Assert.Equal(008, currency.Number);
             Assert.Equal("Albanian Lek", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Lek" }, currency.Symbols);
             Assert.Equal("Qintar", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(008, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -112,11 +106,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "dram" }, currency.Symbols);
             Assert.Equal("Luma", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(051, currency.Number);
             Assert.Equal(10, currency.SmallestDenomination);
 
@@ -132,17 +124,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("ANG", currency.Code);
+            Assert.Equal(532, currency.Number);
             Assert.Equal("Netherlands Antillean Gulden", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "NAƒ", "NAf", "f" }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(532, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -157,17 +147,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("AOA", currency.Code);
+            Assert.Equal(973, currency.Number);
             Assert.Equal("Angolan Kwanza", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Cêntimo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(973, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(10, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -182,18 +170,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("ARS", currency.Code);
+            Assert.Equal(032, currency.Number);
             Assert.Equal("Argentine Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "$m/n", "m$n" }, currency.Symbols);
             Assert.Equal("$m/n", currency.DisambiguateSymbol);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(032, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -208,18 +194,16 @@ namespace Money.Tests
 
             Assert.Equal(4, currency.Priority);
             Assert.Equal("AUD", currency.Code);
+            Assert.Equal(036, currency.Number);
             Assert.Equal("Australian Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "A$" }, currency.Symbols);
             Assert.Equal("A$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(036, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -234,17 +218,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("AWG", currency.Code);
+            Assert.Equal(533, currency.Number);
             Assert.Equal("Aruban Florin", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Afl" }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(533, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -259,17 +241,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("AZN", currency.Code);
+            Assert.Equal(944, currency.Number);
             Assert.Equal("Azerbaijani Manat", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "m", "man" }, currency.Symbols);
             Assert.Equal("Qəpik", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(944, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -285,17 +265,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BAM", currency.Code);
+            Assert.Equal(977, currency.Number);
             Assert.Equal("Bosnia-Herzegovina Convertible Mark", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "KM" }, currency.Symbols);
             Assert.Equal("Fening", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(977, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -310,17 +288,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BHD", currency.Code);
+            Assert.Equal(048, currency.Number);
             Assert.Equal("Bahraini Dinar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "BD" }, currency.Symbols);
             Assert.Equal("Fils", currency.SubUnit);
             Assert.Equal(1000, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(048, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -335,18 +311,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BBD", currency.Code);
+            Assert.Equal(052, currency.Number);
             Assert.Equal("Barbadian Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Bds$" }, currency.Symbols);
             Assert.Equal("Bds$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(052, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -361,17 +335,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BDT", currency.Code);
+            Assert.Equal(050, currency.Number);
             Assert.Equal("Bangladeshi Taka", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Tk" }, currency.Symbols);
             Assert.Equal("Paisa", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(050, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -386,17 +358,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BGN", currency.Code);
+            Assert.Equal(975, currency.Number);
             Assert.Equal("Bulgarian Lev", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "lev", "leva", "лев", "лева" }, currency.Symbols);
             Assert.Equal("Stotinka", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(975, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -411,17 +381,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BIF", currency.Code);
+            Assert.Equal(108, currency.Number);
             Assert.Equal("Burundian Franc", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "FBu" }, currency.Symbols);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(108, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -436,17 +404,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BMD", currency.Code);
+            Assert.Equal(060, currency.Number);
             Assert.Equal("Bermudian Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "BD$" }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(060, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -461,17 +427,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BND", currency.Code);
+            Assert.Equal(096, currency.Number);
             Assert.Equal("Brunei Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "B$", "BND" }, currency.Symbols);
             Assert.Equal("Sen", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(096, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -486,17 +450,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BOB", currency.Code);
+            Assert.Equal(068, currency.Number);
             Assert.Equal("Bolivian Boliviano", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Bs" }, currency.Symbols);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(068, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(10, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -511,17 +473,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BRL", currency.Code);
+            Assert.Equal(986, currency.Number);
             Assert.Equal("Brazilian Real", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(986, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -536,18 +496,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BSD", currency.Code);
+            Assert.Equal(044, currency.Number);
             Assert.Equal("Bahamian Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "B$" }, currency.Symbols);
             Assert.Equal("BSD", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(044, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -562,17 +520,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BTN", currency.Code);
+            Assert.Equal(064, currency.Number);
             Assert.Equal("Bhutanese Ngultrum", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "Nu" }, currency.Symbols);
             Assert.Equal("Chertrum", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(064, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -588,17 +544,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BWP", currency.Code);
+            Assert.Equal(072, currency.Number);
             Assert.Equal("Botswana Pula", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Thebe", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(072, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -613,18 +567,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BYN", currency.Code);
+            Assert.Equal(933, currency.Number);
             Assert.Equal("Belarusian Ruble", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "бел. руб.", "б.р.", "руб.", "р." }, currency.Symbols);
             Assert.Equal("BYN", currency.DisambiguateSymbol);
             Assert.Equal("Kapeyka", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(" ", currency.ThousandsSeparator);
-            Assert.Equal(933, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(" ", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -639,18 +591,16 @@ namespace Money.Tests
 
             Assert.Equal(50, currency.Priority);
             Assert.Equal("BYR", currency.Code);
+            Assert.Equal(974, currency.Number);
             Assert.Equal("Belarusian Ruble", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "бел. руб.", "б.р.", "руб.", "р." }, currency.Symbols);
             Assert.Equal("BYR", currency.DisambiguateSymbol);
             Assert.Null(currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(" ", currency.ThousandsSeparator);
-            Assert.Equal(974, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(" ", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -665,18 +615,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("BZD", currency.Code);
+            Assert.Equal(084, currency.Number);
             Assert.Equal("Belize Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "BZ$" }, currency.Symbols);
             Assert.Equal("BZ$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(084, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -691,18 +639,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CAD", currency.Code);
+            Assert.Equal(124, currency.Number);
             Assert.Equal("Canadian Dollar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "C$", "CAD$" }, currency.Symbols);
             Assert.Equal("C$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(124, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -717,18 +663,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CDF", currency.Code);
+            Assert.Equal(976, currency.Number);
             Assert.Equal("Congolese Franc", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "FC" }, currency.Symbols);
             Assert.Equal("FC", currency.DisambiguateSymbol);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(976, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -743,17 +687,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CHF", currency.Code);
+            Assert.Equal(756, currency.Number);
             Assert.Equal("Swiss Franc", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "SFr", "Fr" }, currency.Symbols);
             Assert.Equal("Rappen", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u%n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal("’", currency.ThousandsSeparator);
-            Assert.Equal(756, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal("’", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -768,17 +710,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CLF", currency.Code);
+            Assert.Equal(990, currency.Number);
             Assert.Equal("Unidad de Fomento", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Peso", currency.SubUnit);
             Assert.Equal(10000, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(990, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -793,17 +733,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CLP", currency.Code);
+            Assert.Equal(152, currency.Number);
             Assert.Equal("Chilean Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Peso", currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(152, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -818,17 +756,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CNY", currency.Code);
+            Assert.Equal(156, currency.Number);
             Assert.Equal("Chinese Renminbi Yuan", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "CN¥", "元", "CN元" }, currency.Symbols);
             Assert.Equal("Fen", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(156, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -843,18 +779,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("COP", currency.Code);
+            Assert.Equal(170, currency.Number);
             Assert.Equal("Colombian Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "COL$" }, currency.Symbols);
             Assert.Equal("COL$", currency.DisambiguateSymbol);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(170, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(20, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -869,17 +803,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CRC", currency.Code);
+            Assert.Equal(188, currency.Number);
             Assert.Equal("Costa Rican Colón", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "¢" }, currency.Symbols);
             Assert.Equal("Céntimo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(188, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(500, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -894,17 +826,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CUC", currency.Code);
+            Assert.Equal(931, currency.Number);
             Assert.Equal("Cuban Convertible Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "CUC$" }, currency.Symbols);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(931, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -919,17 +849,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("CUP", currency.Code);
+            Assert.Equal(192, currency.Number);
             Assert.Equal("Cuban Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "$MN" }, currency.Symbols);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(192, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -950,11 +878,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "Esc" }, currency.Symbols);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -975,11 +901,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Haléř", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(" ", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(" ", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -995,17 +919,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("DJF", currency.Code);
+            Assert.Equal(262, currency.Number);
             Assert.Equal("Djiboutian Franc", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(262, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
         }
 
@@ -1017,18 +939,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("DKK", currency.Code);
+            Assert.Equal(208, currency.Number);
             Assert.Equal("Danish Krone", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, ",-" }, currency.Symbols);
             Assert.Equal("DKK", currency.DisambiguateSymbol);
             Assert.Equal("Øre", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
-            Assert.Equal(208, currency.Number);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(50, currency.SmallestDenomination);
         }
 
@@ -1040,18 +960,16 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("DOP", currency.Code);
+            Assert.Equal(214, currency.Number);
             Assert.Equal("Dominican Peso", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "RD$" }, currency.Symbols);
             Assert.Equal("RD$", currency.DisambiguateSymbol);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(214, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
         }
 
@@ -1063,17 +981,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("DZD", currency.Code);
+            Assert.Equal(012, currency.Number);
             Assert.Equal("Algerian Dinar", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "DA" }, currency.Symbols);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(012, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
         }
 
@@ -1086,17 +1002,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("EGP", currency.Code);
+            Assert.Equal(818, currency.Number);
             Assert.Equal("Egyptian Pound", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "LE", "E£", "L.E." }, currency.Symbols);
             Assert.Equal("Piastre", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(818, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(25, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1117,11 +1031,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
         }
 
@@ -1133,17 +1045,15 @@ namespace Money.Tests
 
             Assert.Equal(100, currency.Priority);
             Assert.Equal("ETB", currency.Code);
+            Assert.Equal(230, currency.Number);
             Assert.Equal("Ethiopian Birr", currency.Name);
             Assert.Equal(symbol, currency.Symbol);
             Assert.Equal(new[] { symbol, "ብር" }, currency.Symbols);
             Assert.Equal("Santim", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
-            Assert.Equal(230, currency.Number);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1164,11 +1074,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1190,11 +1098,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "FJ$" }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1215,11 +1121,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "FK£" }, currency.Symbols);
             Assert.Equal("Penny", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1241,11 +1145,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Penny", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1266,11 +1168,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "lari" }, currency.Symbols);
             Assert.Equal("Tetri", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1291,11 +1191,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "GH¢", "GH₵" }, currency.Symbols);
             Assert.Equal("Pesewa", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1317,11 +1215,9 @@ namespace Money.Tests
             Assert.Equal("GIP", currency.DisambiguateSymbol);
             Assert.Equal("Penny", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1343,11 +1239,9 @@ namespace Money.Tests
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal("Butut", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1369,11 +1263,9 @@ namespace Money.Tests
             Assert.Equal("FG", currency.DisambiguateSymbol);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1395,11 +1287,9 @@ namespace Money.Tests
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1421,11 +1311,9 @@ namespace Money.Tests
             Assert.Equal("G$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(100, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1448,11 +1336,9 @@ namespace Money.Tests
             Assert.Equal("HK$", currency.DisambiguateSymbol);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(10, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1474,11 +1360,9 @@ namespace Money.Tests
             Assert.Equal("HNL", currency.DisambiguateSymbol);
             Assert.Equal("Centavo", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1500,11 +1384,9 @@ namespace Money.Tests
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal("Lipa", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1526,11 +1408,9 @@ namespace Money.Tests
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal("Centime", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1552,11 +1432,9 @@ namespace Money.Tests
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal("", currency.SubUnit);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(" ", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(" ", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1579,11 +1457,9 @@ namespace Money.Tests
             Assert.Equal("Sen", currency.SubUnit);
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5000, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1605,11 +1481,9 @@ namespace Money.Tests
             Assert.Equal("Agora", currency.SubUnit);
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(10, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1631,11 +1505,9 @@ namespace Money.Tests
             Assert.Equal("Paisa", currency.SubUnit);
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(50, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1657,11 +1529,9 @@ namespace Money.Tests
             Assert.Equal("", currency.SubUnit);
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(5000, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1683,11 +1553,9 @@ namespace Money.Tests
             Assert.Equal("", currency.SubUnit);
             Assert.Null(currency.DisambiguateSymbol);
             Assert.Equal(1, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(".", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(".", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(1, currency.SmallestDenomination);
 
             Assert.True(currency.IsIso);
@@ -1707,11 +1575,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Fils", currency.SubUnit);
             Assert.Equal(1000, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(368, currency.Number);
             Assert.Equal(50000, currency.SmallestDenomination);
 
@@ -1733,11 +1599,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "JD" }, currency.Symbols);
             Assert.Equal("Fils", currency.SubUnit);
             Assert.Equal(1000, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(400, currency.Number);
             Assert.Equal(5, currency.SmallestDenomination);
 
@@ -1759,11 +1623,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "K.D." }, currency.Symbols);
             Assert.Equal("Fils", currency.SubUnit);
             Assert.Equal(1000, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(414, currency.Number);
             Assert.Equal(5, currency.SmallestDenomination);
 
@@ -1785,11 +1647,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "£", "L£" }, currency.Symbols);
             Assert.Equal("Piastre", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(422, currency.Number);
             Assert.Equal(25000, currency.SmallestDenomination);
 
@@ -1811,11 +1671,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, ":-" }, currency.Symbols);
             Assert.Equal("Öre", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.False(currency.SymbolFirst);
-            Assert.Equal("%n %u", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(",", currency.DecimalMark);
-            Assert.Equal(" ", currency.ThousandsSeparator);
+            Assert.Equal(",", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(" ", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(752, currency.Number);
             Assert.Equal(100, currency.SmallestDenomination);
 
@@ -1837,11 +1695,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol, "US$" }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(840, currency.Number);
             Assert.Equal(1, currency.SmallestDenomination);
 
@@ -1863,11 +1719,9 @@ namespace Money.Tests
             Assert.Equal(new[] { symbol }, currency.Symbols);
             Assert.Equal("Cent", currency.SubUnit);
             Assert.Equal(100, currency.SubUnitToUnit);
-            Assert.True(currency.SymbolFirst);
-            Assert.Equal("%u %n", currency.Format);
             Assert.Null(currency.HtmlEntity);
-            Assert.Equal(".", currency.DecimalMark);
-            Assert.Equal(",", currency.ThousandsSeparator);
+            Assert.Equal(".", currency.Format.CurrencyDecimalSeparator);
+            Assert.Equal(",", currency.Format.CurrencyGroupSeparator);
             Assert.Equal(710, currency.Number);
             Assert.Equal(10, currency.SmallestDenomination);
 
