@@ -36,7 +36,7 @@ namespace Money
 
         public string Format(Money money)
         {
-            var format = _currency.Format;
+            var format = new NumberFormatInfo(_currency.Format);
             var units = ((decimal)money.Fractional / (decimal)_currency.SubUnitToUnit);
 
             if (_rules.NoCents)
