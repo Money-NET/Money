@@ -85,6 +85,7 @@ namespace Money
         public static readonly Currency ILS = new Currency("ILS", 376, "Israeli New Sheqel", "%u %n", "Agora", 100, 10, ".", ",", new[] { "₪", "ש״ח", "NIS" }, symbolFirst: true);
         public static readonly Currency INR = new Currency("INR", 356, "Indian Rupee", "%u %n", "Paisa", 100, 50, ".", ",", new[] { "₹", "Rs", "৳", "૱", "௹", "रु", "₨" }, symbolFirst: true);
         public static readonly Currency IRR = new Currency("IRR", 364, "Iranian Rial", "%u %n", string.Empty, 100, 5000, ".", ",", new[] { "﷼" }, symbolFirst: true);
+        public static readonly Currency ISK = new Currency("ISK", 352, "Icelandic Króna", "%n %u", string.Empty, 1, 1, ",", ".", new [] { "kr.", "Íkr" });
         public static readonly Currency IQD = new Currency("IQD", 368, "Iraqi Dinar", "%n %u", "Fils", 1000, 50000, ".", ",", new[] { "ع.د" });
 
         public static readonly Currency JOD = new Currency("JOD", 400, "Jordanian Dinar", "%u %n", "Fils", 1000, 5, ".", ",", new[] { "د.ا", "JD" });
@@ -125,46 +126,6 @@ namespace Money
         #endregion
 
         #region Constructors
-        //private Currency(
-        //    CultureInfo culture,
-        //    decimal number,
-        //    string subUnit,
-        //    int subUnitToUnit,
-        //    int smallestDenomination,
-        //    IEnumerable<string> alternateSymbols = null,
-        //    string disambiguateSymbol = null,
-        //    string format = null,
-        //    string htmlEntity = null,
-        //    int priority = 100,
-        //    bool symbolFirst = false)
-        //{
-        //    var region = new RegionInfo(culture.Name);
-        //    var symbols = new List<string> { culture.NumberFormat.CurrencySymbol };
-
-        //    if (alternateSymbols != null && alternateSymbols.Any())
-        //        symbols.AddRange(alternateSymbols);
-
-        //    Priority = priority;
-        //    Code = region.ISOCurrencySymbol;
-        //    Number = number;
-        //    Name = region.CurrencyEnglishName;
-        //    Format = string.IsNullOrWhiteSpace(format) ? symbolFirst ? "%u %n" : "%n %u" : format;
-
-        //    Symbols = symbols.ToArray();
-        //    SymbolFirst = symbolFirst;
-        //    DisambiguateSymbol = disambiguateSymbol;
-        //    HtmlEntity = htmlEntity;
-
-        //    SubUnit = subUnit;
-        //    SubUnitToUnit = subUnitToUnit;
-
-        //    DecimalMark = culture.NumberFormat.CurrencyDecimalSeparator;
-        //    ThousandsSeparator = culture.NumberFormat.CurrencyGroupSeparator;
-        //    SmallestDenomination = smallestDenomination;
-
-        //    Currencies.AddOrUpdate(Code, this, (k, v) => v);
-        //}
-
         private Currency(
             string code,
             decimal number,

@@ -18,13 +18,15 @@ namespace Money
     {
         public IBank Bank;
         public Currency Currency;
+        public Formatter Formatter;
         public int Fractional;
         public MidpointRounding Rounding = MidpointRounding.ToEven;
 
-        public Money(MidpointRounding rounding = MidpointRounding.ToEven)
+        protected Money(MidpointRounding rounding = MidpointRounding.ToEven)
         {
             Bank = new Bank.VariableExchange();
             Rounding = rounding;
+
         }
 
         #region Constructors
@@ -40,6 +42,7 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
+            Formatter = new Formatter(Currency);
             Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
@@ -54,6 +57,7 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
+            Formatter = new Formatter(Currency);
             Fractional = (int)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
@@ -67,6 +71,7 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
+            Formatter = new Formatter(Currency);
             Fractional = cents;
         }
         #endregion
@@ -86,9 +91,6 @@ namespace Money
         /// <returns></returns>
         public decimal RoundToNearestCashValue()
         {
-            //TODO: Is this needed i .NET?
-            //if (Currency.SmallestDenomination == null)
-            //    throw new UndefinedSmallestDenominationException(Currency);
             var value = Math.Round(((decimal)Fractional / (decimal)Currency.SmallestDenomination), Rounding) * Currency.SmallestDenomination;
 
             return value;
@@ -107,6 +109,15 @@ namespace Money
 
             return this;
         }
+        #endregion
+
+        #region Overrides
+
+        public override string ToString()
+        {
+            return Formatter.Format(this);
+        }
+
         #endregion
     }
 }
