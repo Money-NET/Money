@@ -169,7 +169,7 @@ namespace Money
         #endregion
 
         #region Methods
-
+        
         /// <summary>
         ///  TODO
         /// </summary>
@@ -192,14 +192,11 @@ namespace Money
         /// Lookup a currency with given +id+ an returns a +Currency+ instance on
         /// success, +null+ otherwise.
         ///
-        /// @param [String, Symbol, #to_s] id Used to look into +table+ and
-        /// retrieve the applicable attributes.
-        ///
-        /// @return [Money::Currency]
+        /// @return [Money.Currency]
         ///
         /// @example
-        ///   Money.Currency.Find("eur") #=> #<Money.Currency Id: "eur" ...>
-        ///   Money.Currency.Find("foo") #=> null
+        ///   Money.Currency.Find("EUR") #=> #<Money.Currency Code: EUR ...>
+        ///   Money.Currency.Find("FOO") #=> null
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
@@ -219,14 +216,11 @@ namespace Money
         /// Lookup a currency with given +num+ as an ISO 4217 numeric and returns an
         /// +Currency+ instance on success, +null+ otherwise.
         ///
-        /// @param [#to_s] num used to look into +table+ in +iso_numeric+ and find
-        /// the right currency id.
-        ///
         /// @return [Money.Currency]
         ///
         /// @example
-        ///   Money.Currency.Find(978) #=> #<Money.Currency Id: "eur" ...>
-        ///   Money.Currency.Find(51) #=> #<Money.Currency Id: "amd" ...>
+        ///   Money.Currency.Find(978) #=> #<Money.Currency Id: EUR ...>
+        ///   Money.Currency.Find(51) #=> #<Money.Currency Id: AMD ...>
         ///   Money.Currency.Find('001') #=> nil
         /// </summary>
         /// <param name="number"></param>

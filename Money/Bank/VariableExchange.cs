@@ -19,25 +19,25 @@ namespace Money.Bank
     ///
     /// @example
     ///   bank = new Money.Bank.VariableExchange()
-    ///   bank.AddRate("USD", "CAD", 1.24515)
-    ///   bank.AddRate("CAD", "USD", 0.803115)
+    ///   bank.AddRate(Currency.USD, Currency.CAD, 1.24515)
+    ///   bank.AddRate(Currency.CAD, Currency.USD, 0.803115)
     ///
     ///   c1 = new Money(100_00, "USD")
     ///   c2 = new Money(100_00, "CAD")
     ///
     ///   # Exchange 100 USD to CAD:
-    ///   bank.Exchange(c1, "CAD") #=> #<Money Fractional:12451 Currency:CAD>
+    ///   bank.Exchange(c1, Currency.CAD) #=> #<Money Fractional:12451 Currency:CAD>
     ///
     ///   # Exchange 100 CAD to USD:
-    ///   bank.Exchange(c2, "USD") #=> #<Money Fractional:8031 Currency:USD>
+    ///   bank.Exchange(c2, Currency.USD) #=> #<Money Fractional:8031 Currency:USD>
     ///
     ///   # With custom exchange rates storage
     ///   redis_store = MyCustomRedisStore.new(host: 'localhost:6379')
-    ///   bank = Money::Bank::VariableExchange.new(redis_store)
+    ///   bank = Money.Bank.VariableExchange.new(redis_store)
     ///   # Store rates in redis
-    ///   bank.AddRate 'USD', 'CAD', 0.98
+    ///   bank.AddRate(Currency.USD, Currency.CAD, 0.98)
     ///   # Get rate from redis
-    ///   bank.GetRate 'USD', 'CAD'
+    ///   bank.GetRate(Currency.USD', Currency.CAD)
     public class VariableExchange : IBank
     {
         private static readonly ConcurrentDictionary<string, Rate> Rates = new ConcurrentDictionary<string, Rate>();

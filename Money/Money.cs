@@ -7,7 +7,7 @@ namespace Money
 {
     /// <summary>
     /// "Money is any object or record that is generally accepted as payment for
-    /// goods and services and repayment of debts in a given socio-economic context
+    /// goods and services and repayment of debts in a given socioeconomic context
     /// or country." -Wikipedia
     ///
     /// An instance of Money represents an amount of a specific currency.
@@ -16,16 +16,15 @@ namespace Money
     ///
     /// @see http://en.wikipedia.org/wiki/Money
     /// </summary>
-    public class Money : IEquatable<Money> //IComparable
+    public class Money : IComparable, IEquatable<Money>
     {
-        public IBank Bank;
+        public static IBank Bank { get; private set; } = new Bank.VariableExchange();
         public Currency Currency;
         public long Fractional;
-        public MidpointRounding Rounding = MidpointRounding.ToEven;
+        public MidpointRounding Rounding;
 
         protected Money(MidpointRounding rounding = MidpointRounding.ToEven)
         {
-            Bank = new Bank.VariableExchange();
             Rounding = rounding;
         }
 
@@ -141,10 +140,34 @@ namespace Money
 
         #region Methods
 
+        public long Cents => Fractional;
+
         //TODO: Move to Arithmetic.cs?
         public bool Positive => Fractional > 0;
         public bool Negative => Fractional < 0;
 
+        /// <summary>
+        /// Creates a new Money object of value given in the +unit+ of the given
+        /// +currency+.
+        /// </summary>
+        /// <returns>[Money]</returns>
+        /// <example>
+        /// <code>
+        ///     Money.FromAmount(23.45, Currency.USD) # => #<Money Fractional:2345 Currency:USD>
+        ///     Money.FromAmount(23.45, Currency.JPY) # => #<Money Fractional:23 Currency:JPY>
+        /// </code>
+        /// </example>
+        public static Money FromAmount(decimal amount, Currency currency)
+        {
+            var value = (amount * currency.SubUnitToUnit);
+
+            return new Money(value, currency);
+        }
+
+        public static Money FromCents(long amount, Currency currency)
+        {
+            return new Money(amount, currency);
+        }
 
         /// <summary>
         /// Round a given amount of money to the nearest possible amount in cash value. For
@@ -174,6 +197,11 @@ namespace Money
             return this;
         }
 
+        public Money Exchange(Currency currency)
+        {
+            return Bank.Exchange(Currency, currency);
+        }
+
         public bool Equals(Money other)
         {
             if (other == null)
@@ -181,6 +209,13 @@ namespace Money
 
             return Currency.Code == other.Currency.Code &&
                    Fractional == other.Fractional;
+        }
+
+        public int CompareTo(object obj)
+        {
+            var money = (Money)obj;
+            return Fractional.CompareTo(money.Fractional) +
+                   Currency.CompareTo(money.Currency);
         }
 
         #endregion
@@ -223,6 +258,70 @@ namespace Money
                 ShowPositiveSign = showPositiveSign,
                 ShowSymbol = showSymbol
             }).Format(this);
+        }
+
+        public override int GetHashCode()
+        {
+            //return HashCode.Combine(Currency.GetHashCode(), Fractional.GetHashCode());
+            return new { Currency, Fractional }.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            var money = (Money)obj;
+
+            return Fractional.Equals(money.Fractional) &&
+                   Currency.Equals(money.Currency);
+        }
+
+        #endregion
+
+        #region Operators
+
+        /// <summary>
+        /// Compares +self+ with +other_currency+ and returns +true+ if the are the
+        /// same or if their +id+ attributes match.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>[Boolean]</returns>
+        public static bool operator ==(Money lhs, Money rhs)
+        {
+            if (ReferenceEquals(lhs, null))
+            {
+                return ReferenceEquals(rhs, null);
+            }
+            return lhs.Equals(rhs);
+        }
+
+        /// <summary>
+        /// Compares +self+ with +other_currency+ and returns +true+ if the are the
+        /// same or if their +id+ attributes match.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>[Boolean]</returns>
+        public static bool operator !=(Money lhs, Money rhs)
+        {
+            return !(lhs == rhs);
+        }
+
+        public static Money operator +(Money lhs, Money rhs)
+        {
+            return new Money((lhs.Fractional + rhs.Fractional), lhs.Currency, lhs.Rounding);
+        }
+
+        public static Money operator -(Money lhs, Money rhs)
+        {
+            return new Money((lhs.Fractional - rhs.Fractional), lhs.Currency, lhs.Rounding);
+        }
+        
+        public static Money operator *(Money lhs, long value)
+        {
+            return new Money((lhs.Fractional * value), lhs.Currency, lhs.Rounding);
+        }
+
+        public static Money operator /(Money lhs, long value)
+        {
+            return new Money((lhs.Fractional / value), lhs.Currency, lhs.Rounding);
         }
 
         #endregion

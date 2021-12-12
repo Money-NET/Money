@@ -7,6 +7,15 @@ namespace Money.Tests
 {
     public class MoneyTests
     {
+        [Fact]
+        public void ShouldHoldCurrencyInformation()
+        {
+            var currency = new Money(1000, Currency.USD).Currency;
+
+            Assert.Equal("USD", currency.Code);
+            Assert.Equal(840, currency.Number);
+            Assert.Equal("United States Dollar", currency.Name);
+        }
 
         [Fact]
         public void ShouldCreateMoneyObject()
@@ -27,18 +36,18 @@ namespace Money.Tests
         {
             var money = new Money(1000, Currency.SEK);
             Assert.Equal(Currency.SEK, money.Currency);
-            Assert.Equal(typeof(VariableExchange), money.Bank.GetType());
+            Assert.Equal(typeof(VariableExchange), Money.Bank.GetType());
 
-            money.Bank.AddRate(Currency.SEK, Currency.USD, 0.109133);
-            money.Bank.AddRate(Currency.USD, Currency.SEK, 9.16479);
-            Assert.Equal(2, money.Bank.GetRates().Count());
+            Money.Bank.AddRate(Currency.SEK, Currency.USD, 0.109133);
+            Money.Bank.AddRate(Currency.USD, Currency.SEK, 9.16479);
+            Assert.Equal(2, Money.Bank.GetRates().Count());
 
-            var rate1 = money.Bank.GetRate(Currency.SEK, Currency.USD);
+            var rate1 = Money.Bank.GetRate(Currency.SEK, Currency.USD);
             Assert.Equal(rate1.From, Currency.SEK);
             Assert.Equal(rate1.To, Currency.USD);
             Assert.Equal((decimal)0.109133, rate1.Value);
 
-            var rate2 = money.Bank.GetRate(Currency.USD, Currency.SEK);
+            var rate2 = Money.Bank.GetRate(Currency.USD, Currency.SEK);
             Assert.Equal(rate2.From, Currency.USD);
             Assert.Equal(rate2.To, Currency.SEK);
             Assert.Equal((decimal)9.16479, rate2.Value);
@@ -122,11 +131,6 @@ namespace Money.Tests
 
             money = new Money(-301, Currency.USD);
             Assert.Equal(-301, money.RoundToNearestCashValue());
-        }
-
-        [Fact]
-        public void ShouldExchangeCurrency()
-        {
         }
     }
 }
