@@ -16,7 +16,7 @@ namespace Money
     ///
     /// @see http://en.wikipedia.org/wiki/Money
     /// </summary>
-    public class Money //: IComparable
+    public class Money : IEquatable<Money> //IComparable
     {
         public IBank Bank;
         public Currency Currency;
@@ -62,14 +62,79 @@ namespace Money
         /// <summary>
         ///
         /// </summary>
-        /// <param name="cents"></param>
+        /// <param name="value"></param>
         /// <param name="currency"></param>
         /// <param name="rounding"></param>
-        public Money(int cents, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+        public Money(short value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
             : this(rounding)
         {
             Currency = currency;
-            Fractional = cents;
+            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(ushort value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(long value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(ulong value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(int value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="currency"></param>
+        /// <param name="rounding"></param>
+        public Money(uint value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+            : this(rounding)
+        {
+            Currency = currency;
+            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
         }
 
         #endregion
@@ -107,6 +172,15 @@ namespace Money
             Rounding = rounding;
 
             return this;
+        }
+
+        public bool Equals(Money other)
+        {
+            if (other == null)
+                return false;
+
+            return Currency.Code == other.Currency.Code &&
+                   Fractional == other.Fractional;
         }
 
         #endregion

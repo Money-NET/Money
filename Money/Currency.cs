@@ -8,9 +8,9 @@ using Money.Exceptions;
 
 namespace Money
 {
-    public class Currency : IComparable
+    public class Currency : IComparable, IEquatable<Currency>
     {
-        private static readonly ConcurrentDictionary<string, Currency> Currencies = new ConcurrentDictionary<string, Currency>();
+        public static readonly ConcurrentDictionary<string, Currency> Currencies = new ConcurrentDictionary<string, Currency>();
 
         #region Currencies
 
@@ -248,15 +248,19 @@ namespace Money
             }
         }
 
-        public static IEnumerable<Currency> All()
-        {
-            return Currencies.Values;
-        }
-
         public int CompareTo(object obj)
         {
             var currency = (Currency)obj;
             return string.CompareOrdinal(Code, currency.Code);
+        }
+
+        public bool Equals(Currency other)
+        {
+            if (other == null)
+                return false;
+
+            return Code == other.Code &&
+                   Number == other.Number;
         }
 
         /// <summary>

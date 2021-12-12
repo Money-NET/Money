@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money", "Money\Money.csproj", "{663A8FBE-DA2A-4C9B-A115-268EB4B20F73}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{E31AE40A-9226-4DE0-9D9A-C0EA1F4CC2B2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Tests", "Money.Tests\Money.Tests.csproj", "{E1079904-9F98-487E-975A-E82115488C02}"
 EndProject
 Global
