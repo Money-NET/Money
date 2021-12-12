@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 
 namespace Money.Bank.Interfaces
 {
@@ -29,12 +29,14 @@ namespace Money.Bank.Interfaces
     /// </summary>
     public interface IBank
     {
+        ConcurrentDictionary<string, Rate> Rates { get; }
+
         void AddRate(Currency from, Currency to, decimal value);
         void AddRate(Currency from, Currency to, double value);
         void SetRate(Rate rate);
-        Rate GetRate(Currency from, Currency to);
-        IEnumerable<Rate> GetRates();
 
-        Money Exchange(Currency from, Currency to);
+        Rate Get(Currency from, Currency to);
+
+        Money Exchange(Money from, Currency to);
     }
 }

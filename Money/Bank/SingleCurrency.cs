@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
 
@@ -15,6 +15,13 @@ namespace Money.Bank
     /// </summary>
     public class SingleCurrency : IBank
     {
+        private static readonly ConcurrentDictionary<string, Rate> Items = new ConcurrentDictionary<string, Rate>();
+
+
+        #region Methods
+
+        public ConcurrentDictionary<string, Rate> Rates => Items;
+
         public void AddRate(Currency from, Currency to, decimal value)
         {
             throw new System.NotImplementedException();
@@ -30,24 +37,16 @@ namespace Money.Bank
             throw new System.NotImplementedException();
         }
 
-        public Rate GetRate(Currency from, Currency to)
+        public Rate Get(Currency @from, Currency to)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Rate> GetRates()
-        {
-            throw new System.NotImplementedException();
-        }
+        #endregion
 
-        public IEnumerable<Rate> Rates()
+        public Money Exchange(Money from, Currency to)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Money Exchange(Currency from, Currency to)
-        {
-            throw new DifferentCurrencyException(from, to);
+            throw new DifferentCurrencyException(from.Currency, to);
         }
     }
 }

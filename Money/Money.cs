@@ -31,109 +31,30 @@ namespace Money
         #region Constructors
 
         /// <summary>
-        /// Creates a new Money object of value given in the +unit+ of the given
-        /// +currency+.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(decimal value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
-        }
-
-        /// <summary>
-        /// Creates a new Money object of value given in the +unit+ of the given
-        /// +currency+.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(double value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
-        }
-
-        /// <summary>
         ///
         /// </summary>
         /// <param name="value"></param>
         /// <param name="currency"></param>
         /// <param name="rounding"></param>
-        public Money(short value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+        public Money(long fractional, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
             : this(rounding)
         {
             Currency = currency;
-            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+            Fractional = fractional;
+            //Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>
         ///
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="fractional"></param>
         /// <param name="currency"></param>
         /// <param name="rounding"></param>
-        public Money(ushort value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
+        public Money(int fractional, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
             : this(rounding)
         {
             Currency = currency;
-            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(long value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(ulong value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(int value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = value;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="currency"></param>
-        /// <param name="rounding"></param>
-        public Money(uint value, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
-            : this(rounding)
-        {
-            Currency = currency;
-            Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
+            Fractional = fractional;
         }
 
         #endregion
@@ -157,12 +78,19 @@ namespace Money
         ///     Money.FromAmount(23.45, Currency.JPY) # => #<Money Fractional:23 Currency:JPY>
         /// </code>
         /// </example>
-        public static Money FromAmount(decimal amount, Currency currency)
+        public static Money FromAmount(double amount, Currency currency)
         {
-            var value = (amount * currency.SubUnitToUnit);
+            var value = (long)(amount * currency.SubUnitToUnit);
 
             return new Money(value, currency);
         }
+
+        //public static Money FromAmount(double amount, Currency currency)
+        //{
+        //    var value = (long)(amount * currency.SubUnitToUnit);
+
+        //    return new Money(value, currency);
+        //}
 
         public static Money FromCents(long amount, Currency currency)
         {
@@ -199,7 +127,7 @@ namespace Money
 
         public Money Exchange(Currency currency)
         {
-            return Bank.Exchange(Currency, currency);
+            return Bank.Exchange(this, currency);
         }
 
         public bool Equals(Money other)
@@ -309,11 +237,20 @@ namespace Money
             return new Money((lhs.Fractional + rhs.Fractional), lhs.Currency, lhs.Rounding);
         }
 
+        public static Money operator +(Money lhs, long value)
+        {
+            return new Money((lhs.Fractional + value), lhs.Currency, lhs.Rounding);
+        }
+
         public static Money operator -(Money lhs, Money rhs)
         {
             return new Money((lhs.Fractional - rhs.Fractional), lhs.Currency, lhs.Rounding);
         }
-        
+        public static Money operator -(Money lhs, long value)
+        {
+            return new Money((lhs.Fractional - value), lhs.Currency, lhs.Rounding);
+        }
+
         public static Money operator *(Money lhs, long value)
         {
             return new Money((lhs.Fractional * value), lhs.Currency, lhs.Rounding);

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
 
@@ -40,19 +38,24 @@ namespace Money.Bank
     ///   bank.GetRate(Currency.USD', Currency.CAD)
     public class VariableExchange : IBank
     {
-        private static readonly ConcurrentDictionary<string, Rate> Rates = new ConcurrentDictionary<string, Rate>();
+        private static readonly ConcurrentDictionary<string, Rate> Items = new ConcurrentDictionary<string, Rate>();
 
-        public Money Exchange(Currency from, Currency to)
+        public Money Exchange(Money from, Currency to)
         {
-            var rate = GetRate(from, to);
+            var rate = Get(from.Currency, to);
 
             if (rate == null)
-                throw new UnknownRateException(from, to);
+                throw new UnknownRateException(from.Currency, to);
 
             var fractional = Fractional(from, to);
+            var value = (long)(fractional * rate.Value);
 
-            return new Money(fractional, to);
+            return Money.FromCents(value, to);
         }
+
+        #region Methods
+
+        public ConcurrentDictionary<string, Rate> Rates => Items;
 
         /// <summary>
         /// Registers a conversion rate
@@ -84,7 +87,7 @@ namespace Money.Bank
         /// <param name="rate"></param>
         public void SetRate(Rate rate)
         {
-            Rates.AddOrUpdate(rate.ToString(), rate, (k, v) => rate);
+            Items.AddOrUpdate(rate.ToString(), rate, (k, current) => rate);
         }
 
         /// <summary>
@@ -93,25 +96,27 @@ namespace Money.Bank
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        public Rate GetRate(Currency from, Currency to)
+        public Rate Get(Currency from, Currency to)
         {
-            Rates.TryGetValue($"{from.Code}_{to.Code}", out var rate);
+            Items.TryGetValue($"{from.Code}_{to.Code}", out var rate);
 
             return rate;
         }
 
-        public IEnumerable<Rate> GetRates()
-        {
-            return Rates.Values;
-        }
-
-        public decimal Fractional(Currency from, Currency to)
+        public decimal Fractional(Money from, Currency to)
         {
             //BigDecimal(from.fractional.to_s) / (
             //    BigDecimal(from.currency.subunit_to_unit.to_s) /
             //    BigDecimal(to_currency.subunit_to_unit.to_s)
             //)
-            return (decimal)((decimal)from.SubUnitToUnit / (decimal)to.SubUnitToUnit);
+            //return (decimal)((decimal)from.Currency.SubUnitToUnit / (decimal)to.SubUnitToUnit);
+
+            return (decimal)from.Fractional / (
+                (decimal)from.Currency.SubUnitToUnit /
+                (decimal)to.SubUnitToUnit
+            );
         }
+
+        #endregion
     }
 }
