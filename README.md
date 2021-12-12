@@ -5,7 +5,7 @@ A .NET implementation of the famous Ruby Library Money for dealing with money an
 ![Nuget](https://img.shields.io/nuget/dt/Money.NET)
 
 ## Contributing
-See the [Contribution Guidelines](https://github.com/RubyMoney/money/blob/master/CONTRIBUTING.md)
+See the [Contribution Guidelines](https://github.com/Money-NET/Money/blob/master/CONTRIBUTING.md)
 
 ## Introduction
 A .NET Library for dealing with money and currency conversion.

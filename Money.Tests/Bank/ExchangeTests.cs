@@ -7,7 +7,6 @@ namespace Money.Tests.Bank
         [Fact]
         public void ShouldExchangeCurrencies()
         {
-
             Money.Bank.AddRate(Currency.USD, Currency.CAD, 1.24515);
             Money.Bank.AddRate(Currency.CAD, Currency.USD, 0.803115);
 
