@@ -33,7 +33,7 @@ namespace Money
         /// <summary>
         ///
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="fractional"></param>
         /// <param name="currency"></param>
         /// <param name="rounding"></param>
         public Money(long fractional, Currency currency, MidpointRounding rounding = MidpointRounding.ToEven)
