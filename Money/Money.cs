@@ -1,5 +1,6 @@
 ﻿using System;
 using Money.Bank.Interfaces;
+using Money.Enums;
 using Money.Formatting;
 
 namespace Money
@@ -19,7 +20,6 @@ namespace Money
     {
         public IBank Bank;
         public Currency Currency;
-        public Formatter Formatter;
         public long Fractional;
         public MidpointRounding Rounding = MidpointRounding.ToEven;
 
@@ -42,7 +42,6 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
-            Formatter = new Formatter(Currency);
             Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
@@ -57,7 +56,6 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
-            Formatter = new Formatter(Currency);
             Fractional = (long)Math.Round((value * currency.SubUnitToUnit), rounding);
         }
 
@@ -71,7 +69,6 @@ namespace Money
             : this(rounding)
         {
             Currency = currency;
-            Formatter = new Formatter(Currency);
             Fractional = cents;
         }
 
@@ -119,15 +116,39 @@ namespace Money
         /// <summary>
         /// Creates a formatted price string according to several rules.
         /// </summary>
+        /// <param name="disambiguate"></param>
+        /// <param name="dropTrailingZeros"></param>
+        /// <param name="roundedInfinitePrecision"></param>
+        /// <param name="negativePosition"></param>
+        /// <param name="noCents"></param>
+        /// <param name="noCentsIfWhole"></param>
+        /// <param name="positivePosition"></param>
+        /// <param name="showPositiveSign"></param>
+        /// <param name="showSymbol"></param>
         /// <returns></returns>
-        public override string ToString()
+        public string ToString(
+            bool? disambiguate = null,
+            bool? dropTrailingZeros = null,
+            bool? roundedInfinitePrecision = null,
+            NegativePosition? negativePosition = null,
+            bool? noCents = null,
+            bool? noCentsIfWhole = null,
+            PositivePosition? positivePosition = null,
+            bool? showPositiveSign = null,
+            bool? showSymbol = null)
         {
-            return Formatter.Format(this);
-        }
-
-        public string ToString(Rules rules)
-        {
-            return new Formatter(Currency, rules).Format(this);
+            return new Formatter(Currency, new Rules
+            {
+                Disambiguate = disambiguate,
+                DropTrailingZeros = dropTrailingZeros,
+                RoundedInfinitePrecision = roundedInfinitePrecision,
+                NegativePosition = negativePosition,
+                NoCents = noCents,
+                NoCentsIfWhole = noCentsIfWhole,
+                PositivePosition = positivePosition,
+                ShowPositiveSign = showPositiveSign,
+                ShowSymbol = showSymbol
+            }).Format(this);
         }
 
         #endregion

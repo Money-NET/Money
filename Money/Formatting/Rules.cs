@@ -1,37 +1,39 @@
-﻿namespace Money.Formatting
+﻿using Money.Enums;
+
+namespace Money.Formatting
 {
     public class Rules
     {
-        public bool Disambiguate { get; }
-        public bool DropTrailingZeros { get; }
-        public bool RoundedInfinitePrecision { get;  }
-        public bool NoCents { get; }
-        public bool NoCentsIfWhole { get; }
-        public bool SignBeforeSymbol { get; }
-        public bool ShowPositiveSign { get; }
-        public bool ShowSymbol { get; }
-        public bool WithCurrency { get; }
+        public bool? Disambiguate { get; set; }
+        public bool? DropTrailingZeros { get; set; }
+        public bool? RoundedInfinitePrecision { get; set; }
+        public NegativePosition? NegativePosition { get; set; }
+        public bool? NoCents { get; set; }
+        public bool? NoCentsIfWhole { get; set; }
+        public PositivePosition? PositivePosition { get; set; }
+        public bool? ShowPositiveSign { get; set; }
+        public bool? ShowSymbol { get; set; }
 
         public Rules(
-            bool disambiguate = false,
-            bool dropTrailingZeros = false,
-            bool roundedInfinitePrecision = false,
-            bool noCents = false,
-            bool noCentsIfWhole = false,
-            bool signBeforeSymbol = false,
-            bool showPositiveSign = false,
-            bool showSymbol = true,
-            bool withCurrency = true)
+            bool? disambiguate = null,
+            bool? dropTrailingZeros = null,
+            bool? roundedInfinitePrecision = null,
+            NegativePosition? negativePosition = null,
+            bool? noCents = null,
+            bool? noCentsIfWhole = null,
+            PositivePosition? positivePosition = null,
+            bool? showPositiveSign = null,
+            bool? showSymbol = null)
         {
             Disambiguate = disambiguate;
             DropTrailingZeros = dropTrailingZeros;
             RoundedInfinitePrecision = roundedInfinitePrecision;
+            NegativePosition = negativePosition;
             NoCents = noCents;
             NoCentsIfWhole = noCentsIfWhole;
-            SignBeforeSymbol = signBeforeSymbol;
+            PositivePosition = positivePosition;
             ShowPositiveSign = showPositiveSign;
             ShowSymbol = showSymbol;
-            WithCurrency = withCurrency;
         }
     }
 }
