@@ -6,6 +6,13 @@ namespace Money.Tests
     public class BankTests
     {
         [Fact]
+        public void Test()
+        {
+
+        }
+
+
+        [Fact]
         public void ShouldOnlyStoreOneExchangeRate()
         {
             Money.Bank.AddRate(Currency.USD, Currency.CAD, 1.24515);

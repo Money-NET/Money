@@ -1,9 +1,18 @@
-﻿using Xunit;
+﻿using Money.Bank.Exceptions;
+using Xunit;
 
 namespace Money.Tests.Bank
 {
     public class ExchangeTests
     {
+        [Fact]
+        public void ShouldThrowExceptionForCurrenciesWithNoRate()
+        {
+            var usd = Money.FromAmount(100, Currency.USD);
+
+            Assert.Throws<UnknownRateException>(() => usd.Exchange(Currency.CAD));
+        }
+
         [Fact]
         public void ShouldExchangeCurrencies()
         {
@@ -12,9 +21,6 @@ namespace Money.Tests.Bank
 
             var usd = Money.FromAmount(100, Currency.USD);
             var cad = Money.FromAmount(100, Currency.CAD);
-
-            //.Exchange(Currency.CAD);  //# => new Money(124, Currency.CAD)
-            //.Exchange(Currency.USD); //# => new Money(80, Currency.USD)
 
             var expected = Money.FromAmount(124.51, Currency.CAD);
             var actual = usd.Exchange(Currency.CAD);

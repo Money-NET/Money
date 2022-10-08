@@ -1,6 +1,6 @@
 ﻿namespace Money.Bank.Exceptions
 {
-    public class DifferentCurrencyException : Exception
+    public class DifferentCurrencyException : BankException
     {
         public DifferentCurrencyException(string message)
             : base(message)

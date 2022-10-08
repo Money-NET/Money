@@ -1,6 +1,6 @@
-﻿using System.Collections.Concurrent;
-using Money.Bank.Exceptions;
+﻿using Money.Bank.Exceptions;
 using Money.Bank.Interfaces;
+using System.Collections.Concurrent;
 
 namespace Money.Bank
 {
@@ -12,7 +12,7 @@ namespace Money.Bank
     /// conversion rates. One must manually specify them with +add_rate+, after
     /// which one can perform exchanges with +#exchange_with+.
     ///
-    /// Exchange rates are stored in memory using +Money::RatesStore::Memory+ by default.
+    /// Exchange rates are stored in memory using ConcurrentDictionary<string, Rate>.
     /// Pass custom rates stores for other types of storage (file, database, etc)
     ///
     /// @example
@@ -24,10 +24,10 @@ namespace Money.Bank
     ///   c2 = new Money(100_00, "CAD")
     ///
     ///   # Exchange 100 USD to CAD:
-    ///   bank.Exchange(c1, Currency.CAD) #=> #<Money Fractional:12451 Currency:CAD>
+    ///   bank.Exchange(c1, Currency.CAD) => {Money} Fractional = 12451, Currency = CAD}
     ///
     ///   # Exchange 100 CAD to USD:
-    ///   bank.Exchange(c2, Currency.USD) #=> #<Money Fractional:8031 Currency:USD>
+    ///   bank.Exchange(c2, Currency.USD) => {Money} Fractional = 8031, Currency = USD>
     ///
     ///   # With custom exchange rates storage
     ///   redis_store = MyCustomRedisStore.new(host: 'localhost:6379')

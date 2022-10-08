@@ -4,7 +4,7 @@
     /// Raised when the bank doesn't know about the conversion rate
     /// for specified currencies.
     /// </summary>
-    public class UnknownRateException : Exception
+    public class UnknownRateException : BankException
     {
         public UnknownRateException(string message)
             : base(message)

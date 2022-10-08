@@ -1,7 +1,7 @@
-﻿using System;
-using Money.Bank.Interfaces;
+﻿using Money.Bank.Interfaces;
 using Money.Enums;
 using Money.Formatting;
+using System;
 
 namespace Money
 {
@@ -41,7 +41,6 @@ namespace Money
         {
             Currency = currency;
             Fractional = fractional;
-            //Fractional = (long)Math.Round(((decimal)value * currency.SubUnitToUnit), rounding);
         }
 
         /// <summary>

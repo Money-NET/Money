@@ -4,9 +4,9 @@
     /// The lowest Money.Bank error class.
     /// All Money.Bank exception should inherit from it.
     /// </summary>
-    public class Exception : System.Exception
+    public class BankException : System.Exception
     {
-        public Exception(string message)
+        public BankException(string message)
             : base(message)
         {
         }

@@ -15,15 +15,15 @@ namespace Money.Bank.Interfaces
     /// need to implement the following methods to exchange money between
     /// currencies:
     ///
-    /// - #exchange_with(Money) #=> Money
+    /// - Exchange(Money, Currency) #=> Money
     ///
     /// See Money.Bank.VariableExchange for a real example.
     ///
-    /// Also, you can extend +Money::Bank::VariableExchange+ instead of
+    /// Also, you can extend +Money.Bank.VariableExchange+ instead of
     /// +Money.Bank.Base+ if your bank implementation needs to store rates
     /// internally.
     ///
-    /// @abstract Subclass and override +#exchange_with+ to implement a custom
+    /// @abstract Subclass and override +#Exchange+ to implement a custom
     ///  +Money.Bank+ class. You can also override +#setup+ instead of
     ///  +#initialize+ to setup initial variables, etc.
     /// </summary>
@@ -36,7 +36,6 @@ namespace Money.Bank.Interfaces
         void SetRate(Rate rate);
 
         Rate Get(Currency from, Currency to);
-
         Money Exchange(Money from, Currency to);
     }
 }
